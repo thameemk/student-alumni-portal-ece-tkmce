@@ -63,7 +63,7 @@ class Report_model extends CI_Model {
        return false;
    }
    public function form($data){
-     $this->db->insert('feedData', $data);
+     $this->db->insert('feedHome', $data);
    }
    public function userRegister($data){
      $this->db->insert('login_users', $data);

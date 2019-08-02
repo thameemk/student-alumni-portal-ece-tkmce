@@ -31,7 +31,7 @@ class User extends CI_Controller {
       $data = array(
         'title' => $this->input->post('title'),
         'company' => $this->input->post('company'),
-        'website' => $this->input->post('website'),
+        'reg_link' => $this->input->post('website'),
         'location' => $this->input->post('location'),
         'email' => $this->input->post('email'),
         'phone' => $this->input->post('phone'),
