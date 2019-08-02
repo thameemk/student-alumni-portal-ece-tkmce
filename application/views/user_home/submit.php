@@ -7,7 +7,7 @@
        <div class="edit-profile__container">
            <form action="process" method="post" class="edit-profile__form">
                <div class="form__row">
-                   <label for="company" class="form__label">Company:</label>
+                   <label for="company" class="form__label">Company / Organisation:</label>
                    <input id="Company" name="company" type="text" class="form__input" />
                </div>
                <div class="form__row">
@@ -23,7 +23,7 @@
                    <input id="location" type="text" name="location" class="form__input" />
                </div>
                <div class="form__row">
-                   <label for="email" class="form__label">Email:</label>
+                   <label for="email" class="form__label">Company Email:</label>
                    <input id="email" type="email" name="email" class="form__input" />
                </div>
                <div class="form__row">
@@ -33,10 +33,6 @@
                <div class="form__row">
                    <label for="bio" class="form__label">More Details:</label>
                    <textarea id="bio" name="moreInfo"></textarea>
-               </div>
-               <div class="form__row">
-                   <label for="phone" class="form__label">Upload Files (image /pdf):</label>
-                   <input id="phone" type="file" name="fileUpload" class="form__input" />
                </div>
                <input type="submit" value="Submit">
            </form>

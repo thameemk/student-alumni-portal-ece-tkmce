@@ -15,10 +15,14 @@
                 </div>
             </header>
             <h1 class="title mb-3"><?=$row['title']?></h1>
-            <ul>
-              <li class="ml-3 mt-3 title">Company / Place : <?=$row['place']?> </li>
-              <li class="ml-3 mt-3 title">Web Link : <a href="<?=$row['reg_link']?>"><?=$row['reg_link']?></a> </li>
-              <li class="ml-3 mt-3 title">Last Date : <?=$row['last_date']?> </li>
+            <ul class="pt-1">
+              <li class="ml-3 mt-3 ">Company / Organisation : <?=$row['place']?> </li>
+              <li class="ml-3 mt-3 ">Location : <?=$row['location']?> </li>              
+              <li class="ml-3 mt-3 ">Web Link : <a href="<?=$row['reg_link']?>"><?=$row['reg_link']?></a> </li>
+              <li class="ml-3 mt-3 ">Last Date : <?=$row['last_date']?> </li>
+              <li class="ml-3 mt-3 ">Email : <?=$row['email']?> </li>
+              <li class="ml-3 mt-3 ">Contact Number : <?=$row['phone']?> </li>
+              <li class="ml-3 mt-3 ">More Info : <?=$row['details']?> </li>
             </ul>
             <div class="photo__info">
                 <div class="photo__add-comment-container"></div>

@@ -20,10 +20,10 @@
             <img src="<?php echo base_url ()?>assets/front/img/ece_logo.png" alt="" title="" />
             </a>
         </div>
-        <div class="navigation__column">
+        <!-- <div class="navigation__column">
             <i class="fa fa-search"></i>
             <input type="text" placeholder="Search">
-        </div>
+        </div> -->
         <div class="navigation__column">
             <ul class="navigations__links">
                 <li class="navigation__list-item">
