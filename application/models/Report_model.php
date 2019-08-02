@@ -1,0 +1,72 @@
+<?php
+class Report_model extends CI_Model {
+    public function __construct()
+    {
+        $this->load->database();
+    }
+    public function info($id=""){
+      $this->db->select('details');
+      $this->db->where('id',$id);
+      $query = $this->db->get('publicInfo');
+      return $query->result_array();
+    }
+    public function updates($title=""){
+        $this->db->select('event_title,event_details,start_date,link,event_image');
+        if($title!=""){
+          $this->db->select('event_title,event_details,start_date,link,event_image,event_image_2,end_date,facebook,instagram,youtube,twitter,Fee,event_venue');
+          $this->db->where('link',$title);
+        }
+        $query = $this->db->get('updates');
+        return $query->result_array();
+    }
+    public function blogs($title=""){
+        $this->db->select('b_title,b_author,link,b_date,b_s_details,b_img_1,b_views,b_cat');
+        if($title!=""){
+          $this->db->select('b_title,b_author,link,b_date,b_details,b_img_1,b_views,b_cat,b_instagram,b_youtube,b_twitter,b_facebook,b_img_2
+,b_img_3');
+          $this->db->where('link',$title);
+        }
+        $query = $this->db->get('blog');
+        return $query->result_array();
+    }
+    public function subscribe($emai){
+        $this->db->insert('subscribtions', $data);
+    }
+    public function login(){
+     $user_email = $this->security->xss_clean($this->input->post('user_email'));
+     $password = $this->security->xss_clean($this->input->post('password'));
+
+     $this->db->where('user_email',$user_email);
+
+     $query=$this->db->get('login_users');
+     // $num_rows=$this->db->count_all_results('userlogin');
+
+     $num_rows=$query->num_rows();
+     if($num_rows == 1)
+     {
+           $row = $query->row();
+           if (password_verify($password, $row->user_password)) {
+               $data = array(
+                   'lid' => $row->lid,
+                   'user_email' => $row->user_email,
+                   'validated' => true
+               );
+               $this->session->set_userdata($data);
+               return true;
+           } else {
+               return false;
+           }
+
+           return true;
+
+       }
+       return false;
+   }
+   public function form($data){
+     $this->db->insert('feedData', $data);
+   }
+   public function userRegister($data){
+     $this->db->insert('login_users', $data);
+   }
+
+}
