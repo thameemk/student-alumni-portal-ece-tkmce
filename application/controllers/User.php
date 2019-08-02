@@ -35,9 +35,10 @@ class User extends CI_Controller {
         'location' => $this->input->post('location'),
         'email' => $this->input->post('email'),
         'phone' => $this->input->post('phone'),
-        'moreInfo' => $this->input->post('details'),
+        'details' => $this->input->post('moreInfo'),
         'user_email' => $_SESSION['user_email'],
-        'first_name' => $_SESSION['first_name'],
+        'author_first_name' => $_SESSION['first_name'],
+        'author_last_name' => $_SESSION['last_name'],
       );
       $this->report_model->form($data);
       $this->session->set_flashdata('msg', 'Information submitted successfully !');
