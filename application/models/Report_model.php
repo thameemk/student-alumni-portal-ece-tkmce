@@ -68,5 +68,10 @@ class Report_model extends CI_Model {
    public function userRegister($data){
      $this->db->insert('login_users', $data);
    }
+   public function userHome($showStatus=""){
+       $this->db->where('showStatus',$showStatus);
+       $query = $this->db->get('feedHome');
+       return $query->result_array();
+   }
 
 }

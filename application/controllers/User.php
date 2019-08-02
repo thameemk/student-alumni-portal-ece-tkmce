@@ -14,8 +14,9 @@ class User extends CI_Controller {
     }
     public function home()
     {
+        $data['feed']=$this->report_model->userHome($showStatus='1');
         $this->load->view('user_home/user_header');
-        $this->load->view('user_home/user_home');
+        $this->load->view('user_home/user_home',$data);
         $this->load->view('user_home/user_footer');
     }
     public function submit()

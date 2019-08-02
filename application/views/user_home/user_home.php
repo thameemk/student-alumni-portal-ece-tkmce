@@ -5,32 +5,23 @@
 <?php endif; ?>
 
 <main id="feed">
+      <?php foreach($feed as $row){ ?>
         <div class="photo">
             <header class="photo__header">
-                <img src="<?php echo base_url()?>assets/userhome/front/images/avatar.jpg" class="photo__avatar" />
+                <img src="<?=$row['author_img']?>" class="photo__avatar" />
                 <div class="photo__user-info">
-                    <span class="photo__author">author</span>
-                    <span class="photo__location">company</span>
+                    <span class="photo__author"><?=$row['author']?></span>
+                    <span class="photo__location"><?=$row['company']?></span>
                 </div>
             </header>
-            <h1 class="title mb-3">title</h1>
-            <p class="details ml-3 mr-3 mb-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type speci</p>
-            <img src="<?php echo base_url()?>assets/userhome/front/images/feedPhoto.jpg" />
+            <h1 class="title mb-3"><?=$row['title']?></h1>
+            <ul>
+              <li class="ml-3 mt-3 title">Company / Place : <?=$row['place']?> </li>
+              <li class="ml-3 mt-3 title">Web Link : <a href="<?=$row['reg_link']?>"><?=$row['reg_link']?></a> </li>
+              <li class="ml-3 mt-3 title">Last Date : <?=$row['last_date']?> </li>
+            </ul>
             <div class="photo__info">
-                <div class="photo__actions">
-                    <span class="photo__action">
-                        <i class="fa fa-comment-o fa-lg"></i>
-                    </span>
-                </div>
-                <ul class="photo__comments">
-                    <li class="photo__comment">
-                        <span class="photo__comment-author">comment_author</span> comment
-                    </li>
-                </ul>
-                <span class="photo__time-ago">2 hours ago</span>
-                <div class="photo__add-comment-container">
-                    <textarea name="comment" placeholder="Add a comment..."></textarea>
-                    <i class="fa fa-ellipsis-h"></i>
-                </div>
+                <div class="photo__add-comment-container"></div>
             </div>
         </div>
+      <?php } ?>
