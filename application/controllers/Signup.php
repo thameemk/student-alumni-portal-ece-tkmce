@@ -5,7 +5,7 @@ class Signup extends CI_Controller {
 
     function __construct() {
        parent::__construct();
-       $this->load->library('form_validation');
+       $this->load->library('form_validation','encryption');
        $this->load->model('report_model');
        $this->load->helper(array('form', 'url'));
     }
@@ -35,7 +35,7 @@ class Signup extends CI_Controller {
             $this->form_validation->set_rules('phone','Phone Number','required');
             $this->form_validation->set_rules('passyear','Pass year','required');
                 if($this->form_validation->run() == FALSE){
-                     $this->session->set_flashdata('msgreq', 'Fill all fields! or Check the password ');
+                     $this->session->set_flashdata('msgreq', 'Fill all fields! ');
                      redirect('signup');
                  }
                 else {
@@ -46,7 +46,7 @@ class Signup extends CI_Controller {
                       'user_email' => $this->input->post('user_email'),
                       'phone' => $this->input->post('phone'),
                       'year_pass' => $this->input->post('passyear'),
-                      'password' => $this->hash_password($password),
+                      'user_password' => password_hash($this->input->post('password'),PASSWORD_BCRYPT),
                     );
                     $this->report_model->userRegister($data);
                     $this->session->set_flashdata('msg', 'Registration Success!');
