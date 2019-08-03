@@ -66,4 +66,10 @@ class User extends CI_Controller {
         $this->load->view('user_home/profile');
         $this->load->view('user_home/user_footer');
     }
+    public function editprofile()
+    {
+        $this->load->view('user_home/user_header');
+        $this->load->view('user_home/edit_profile');
+        $this->load->view('user_home/user_footer');
+    }
 }
