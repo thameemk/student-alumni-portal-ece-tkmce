@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Feed | Department of ECE</title>
+    <title><?php echo $title; ?> - Department of ECE</title>
     <link rel="stylesheet" href="<?php echo base_url ()?>assets/front/css/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/userhome/front/css/styles.css">
