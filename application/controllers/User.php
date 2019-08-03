@@ -27,28 +27,36 @@ class User extends CI_Controller {
     }
     public function process()
     {
-      // $this->session->set_userdata('user_email');
-      // $this->session->userdata('user_email');
-
+      $data=$this->security->xss_clean($data);
+      $user_email=$_SESSION['user_email'];
+      $this->db->where('user_email',$user_email);
+      $query=$this->db->get('login_users');
+      $row = $query->row();
+      $temp = array(
+          'lid' => $row->lid,
+          'user_email' => $row->user_email,
+          'user_company' => $row->user_company,
+          'author_first_name' => $row->first_name,
+          'author_last_name' => $row->last_name,
+          'validated' => true
+      );
+      $this->session->set_userdata($temp);
       echo '<pre>'; print_r($this->session->all_userdata());
-      print_r($_SESSION['user_company']);
-
-      // $data = array(
-      //   'title' => $this->input->post('title'),
-      //   'place' => $this->input->post('company'),
-      //   'reg_link' => $this->input->post('website'),
-      //   'location' => $this->input->post('location'),
-      //   'email' => $this->input->post('email'),
-      //   'phone' => $this->input->post('phone'),
-      //   'details' => $this->input->post('moreInfo'),
-      //   'user_email' => $_SESSION['user_email'],
-        // 'company' => $_SESSION["user_company"],
-        // 'author_first_name' => $_SESSION['first_name'],
-        // 'author_last_name' => $_SESSION['last_name'],
-      // );
-      // $this->report_model->form($data);
+      $data = array(
+        'title' => $this->input->post('title'),
+        'place' => $this->input->post('company'),
+        'reg_link' => $this->input->post('website'),
+        'location' => $this->input->post('location'),
+        'email' => $this->input->post('email'),
+        'phone' => $this->input->post('phone'),
+        'details' => $this->input->post('moreInfo'),
+        'user_email' => $_SESSION['user_email'],
+        'company' => $_SESSION["user_company"],
+        'author_first_name' => $_SESSION['author_first_name'],
+        'author_last_name' => $_SESSION['author_last_name'],
+      );
+      $this->report_model->form($data);
       $this->session->set_flashdata('msg', 'Information submitted successfully !');
-      // redirect('User/submit');
-
+      redirect('User/submit');
     }
 }

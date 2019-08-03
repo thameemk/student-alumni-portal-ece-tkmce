@@ -8,7 +8,7 @@
       <?php foreach($feed as $row){ ?>
         <div class="photo">
             <header class="photo__header">
-                <img src="<?=$row['author_img']?>" class="photo__avatar" />
+                <img src="<?php echo base_url()?>assets/userhome/img/<?=$row['author_img']?>" class="photo__avatar" />
                 <div class="photo__user-info">
                     <span class="photo__author"><?=$row['author_first_name']?>&nbsp;<?=$row['author_last_name']?></span>
                     <span class="photo__location"><?=$row['company']?></span>

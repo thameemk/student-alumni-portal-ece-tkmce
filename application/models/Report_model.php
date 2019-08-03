@@ -48,8 +48,7 @@ class Report_model extends CI_Model {
            if (password_verify($password, $row->user_password)) {
                $data = array(
                    'lid' => $row->lid,
-                   'user_email' => $row->user_email,
-                   'user_company' => $row->user_company,
+                   'user_email' => $row->user_email,                  
                    'validated' => true
                );
                $this->session->set_userdata($data);
