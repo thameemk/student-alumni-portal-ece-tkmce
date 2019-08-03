@@ -49,6 +49,7 @@ class Report_model extends CI_Model {
                $data = array(
                    'lid' => $row->lid,
                    'user_email' => $row->user_email,
+                   'user_company' => $row->user_company,
                    'validated' => true
                );
                $this->session->set_userdata($data);
@@ -67,6 +68,11 @@ class Report_model extends CI_Model {
    }
    public function userRegister($data){
      $this->db->insert('login_users', $data);
+   }
+   public function userSession($email=""){
+     $this->db->where('user_email',$email);
+     $query = $this->db->get('login_users');
+     return $query->result_array();
    }
    public function userHome($showStatus=""){
        $this->db->where('showStatus',$showStatus);

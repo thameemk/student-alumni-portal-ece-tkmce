@@ -6,8 +6,8 @@ class User extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->helper(array('form', 'url'));
+        $this->load->library('session');
         $this->load->model('report_model');
-
         if(!$this->session->userdata('user_email')) {
             redirect('login');
         }
@@ -27,22 +27,28 @@ class User extends CI_Controller {
     }
     public function process()
     {
-      $this->load->model('report_model');
-      $data = array(
-        'title' => $this->input->post('title'),
-        'company' => $this->input->post('company'),
-        'reg_link' => $this->input->post('website'),
-        'location' => $this->input->post('location'),
-        'email' => $this->input->post('email'),
-        'phone' => $this->input->post('phone'),
-        'details' => $this->input->post('moreInfo'),
-        'user_email' => $_SESSION['user_email'],
-        'author_first_name' => $_SESSION['first_name'],
-        'author_last_name' => $_SESSION['last_name'],
-      );
-      $this->report_model->form($data);
+      // $this->session->set_userdata('user_email');
+      // $this->session->userdata('user_email');
+
+      echo '<pre>'; print_r($this->session->all_userdata());
+      print_r($_SESSION['user_company']);
+
+      // $data = array(
+      //   'title' => $this->input->post('title'),
+      //   'place' => $this->input->post('company'),
+      //   'reg_link' => $this->input->post('website'),
+      //   'location' => $this->input->post('location'),
+      //   'email' => $this->input->post('email'),
+      //   'phone' => $this->input->post('phone'),
+      //   'details' => $this->input->post('moreInfo'),
+      //   'user_email' => $_SESSION['user_email'],
+        // 'company' => $_SESSION["user_company"],
+        // 'author_first_name' => $_SESSION['first_name'],
+        // 'author_last_name' => $_SESSION['last_name'],
+      // );
+      // $this->report_model->form($data);
       $this->session->set_flashdata('msg', 'Information submitted successfully !');
-      redirect('User/submit');
+      // redirect('User/submit');
 
     }
 }
