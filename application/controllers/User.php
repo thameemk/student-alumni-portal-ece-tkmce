@@ -59,4 +59,11 @@ class User extends CI_Controller {
       $this->session->set_flashdata('msg', 'Information submitted successfully !');
       redirect('User/submit');
     }
+
+    public function profile()
+    {
+        $this->load->view('user_home/user_header');
+        $this->load->view('user_home/profile');
+        $this->load->view('user_home/user_footer');
+    }
 }

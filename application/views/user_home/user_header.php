@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li class="navigation__list-item">
-                    <a href="profile.html" class="navigation__link">
+                    <a href="<?=base_url()?>User/profile" class="navigation__link">
                         <i class="fa fa-user-o fa-lg"></i>
                     </a>
                 </li>
