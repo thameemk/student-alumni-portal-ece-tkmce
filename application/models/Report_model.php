@@ -11,7 +11,7 @@ class Report_model extends CI_Model {
       return $query->result_array();
     }
     public function updates($title=""){
-        $this->db->select('event_title,event_details,start_date,link,event_image');
+        $this->db->select('event_title,short_details,start_date,link,event_image');
         if($title!=""){
           $this->db->select('event_title,event_details,start_date,link,event_image,event_image_2,end_date,facebook,instagram,youtube,twitter,Fee,event_venue');
           $this->db->where('link',$title);
@@ -81,6 +81,10 @@ class Report_model extends CI_Model {
    public function userUploads($user_email){
      $this->db->where('user_email',$user_email);
      $query = $this->db->get('feedHome');
+     return $query->result_array();
+   }
+   public function latestNews(){
+     $query = $this->db->get('latestNews');
      return $query->result_array();
    }
 

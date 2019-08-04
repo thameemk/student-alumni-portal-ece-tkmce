@@ -7,11 +7,10 @@
 				<h1 class="text-uppercase">
 				We Ensure better education
 				for a better world
-				</h1>
-				<p class="pt-10 pb-10">
-					In the history of modern astronomy, there is probably no one greater leap forward than the building and launch of the space telescope known as the Hubble.
-				</p>
-				<a href="#" class="primary-btn text-uppercase">Get Started</a>
+			</h1><b>
+				<p class="pt-10 pb-10 text-white">
+	Impart quality education in Electronics and Communication Engineering through excellent teaching and research ambience, keeping abreast of the changes in technology and environment
+</p></b>
 			</div>
 		</div>
 	</div>
@@ -28,8 +27,8 @@
 						<h4>MISSION</h4>
 					</div>
 					<div class="desc-wrap">
-						<p style="text-overflow: ellipsis;">
-						Offer UG and PG programs at par with the curricula offered by institutions of...
+						<p style="text-overflow: ellipsis;"><b class="text-black">
+						Offer UG and PG programs at par with the curricula offered by institutions of...</b>
 						</p>
 						<a href="<?php echo base_url();?>about#mission">Readmore</a>
 					</div>
@@ -41,8 +40,8 @@
 						<h4>VISION</h4>
 					</div>
 					<div class="desc-wrap">
-						<p style="text-overflow: ellipsis;">
-							Impart quality education in Electronics and Communication Engineering ...
+						<p style="text-overflow: ellipsis;"><b class="text-black">
+							Impart quality education in Electronics and Communication Engineering ...</b>
 						</p>
 						<a href="<?php echo base_url();?>about#vision">Readmore</a>
 					</div>
@@ -59,8 +58,7 @@
 					<div class="row d-flex justify-content-center">
 						<div class="menu-content pb-70 col-lg-8">
 							<div class="title text-center">
-								<h1 class="mb-10">Upcoming Events of our Department</h1>
-								<p>If you are a serious astronomy fanatic like a lot of us</p>
+								<h1 class="mb-10">Upcoming Events</h1>
 							</div>
 						</div>
 					</div>
@@ -79,8 +77,8 @@
 							<div class="detials col-12 col-md-6">
 								<p><?=$row['start_date']?></p>
 								<a href="<?php echo base_url("updates/".$row['link'])?>"><h4><?=$row['event_title']?></h4></a>
-								<p>
-								<?=$row['event_details']?>
+								<p align="justify">
+								<?=$row['short_details']?>
 								</p>
 							</div>
 						</div>
@@ -92,3 +90,40 @@
 			</div>
 		</section>
 <!-- End feature Area -->
+<!-- Start popular-course Area -->
+			<section class="popular-course-area section-gap">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Latest News</h1>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="active-popular-carusel">
+							<?php foreach ($news as $row ) { ?>
+							<div class="single-popular-carusel">
+								<div class="thumb-wrap relative">
+									<div class="thumb relative">
+										<div class="overlay overlay-bg"></div>
+										<img class="img-fluid" src="<?php echo base_url()?>assets/uploads/news/<?=$row['img']?>" alt="<?=$row['img']?>">
+									</div>
+								</div>
+								<div class="details">
+									<a href="<?=$row['link']?>">
+										<h4>
+											<?=$row['title']?>
+										</h4>
+									</a>
+									<p align="justify">
+										<?=$row['info']?>
+									</p>
+								</div>
+							</div>
+						<?php }?>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End popular-course Area -->

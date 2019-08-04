@@ -27,8 +27,8 @@
               <div class="detials col-12 col-md-6">
                 <p><?=$row['start_date']?></p>
                 <a href="<?php echo base_url("updates/".$row['link'])?>"><h4><?=$row['event_title']?></h4></a>
-                <p>
-                   <?=$row['event_details']?>
+                <p align="justify">
+                   <?=$row['short_details']?>
                 </p>
               </div>
             </div>
