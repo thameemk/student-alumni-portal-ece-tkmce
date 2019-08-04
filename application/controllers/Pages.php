@@ -13,7 +13,7 @@ class Pages extends CI_Controller {
 	{
     $data['page_title'] = 'Home';
     $data['events']=$this->report_model->updates();
-    $data['news']=$this->report_mode->latestNews();
+    $data['news']=$this->report_model->latestNews();
 		$this->load->view('templates/header',$data);
 		$this->load->view('static/home',$data);
 		$this->load->view('templates/footer');
@@ -28,7 +28,7 @@ class Pages extends CI_Controller {
       }
       $temp = ucfirst($page);
       $data['page_title'] = $temp;
-      $data['news']=$this->report_model->latestNews();      
+      $data['news']=$this->report_model->latestNews();
       $data['about'] =  $this->report_model->info($id='1000');
       $data['events']=$this->report_model->updates();
       $this->load->view('templates/header',$data);

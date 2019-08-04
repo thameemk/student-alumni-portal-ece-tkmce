@@ -32,7 +32,7 @@
                 <div class="user-details row">
                   <p class="user-name col-lg-12 col-md-12 col-6"><a><?=$blog['b_author']?></a> <span class="lnr lnr-user"></span></p>
                   <p class="date col-lg-12 col-md-12 col-6"><a><?=$blog['b_date']?></a> <span class="lnr lnr-calendar-full"></span></p>
-                  <p class="view col-lg-12 col-md-12 col-6"><a><?=$blog['b_views']?></a> <span class="lnr lnr-eye"></span></p>
+                  <!-- <p class="view col-lg-12 col-md-12 col-6"><a><?=$blog['b_views']?></a> <span class="lnr lnr-eye"></span></p> -->
                   <ul class="social-links col-lg-12 col-md-12 col-6">
                     <li><a href="<?=$blog['b_facebook']?>"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="<?=$blog['b_twitter']?>"><i class="fa fa-twitter"></i></a></li>
@@ -43,7 +43,7 @@
               </div>
               <div class="col-lg-9 col-md-9">
                 <h3 class="mt-20 mb-20"><?=$blog['b_title']?></h3>
-                <p class="excert">
+                <p align="justify"class="excert">
                     <?=$blog['b_details']?>
                 </p>
               </div>
@@ -87,9 +87,8 @@
     					</div>
               <div class="single-sidebar-widget newsletter-widget">
                 <h4 class="newsletter-title">Newsletter</h4>
-                <p>
-                  Here, I focus on a range of items and features that we use in life without
-                  giving them a second thought.
+                <p class="pb-5">
+
                 </p>
                 <form action="<?=base_url("Pages/news_letter")?>" method="post">
                 <div class="form-group d-flex flex-row">
@@ -105,9 +104,9 @@
                     <button type="submit" class="bbtns">Subcribe</button>
                 </div>
               </form>
-                <p class="text-bottom">
+                <!-- <p class="text-bottom">
                   You can <a href="#">unsubscribe</a> at any time
-                </p>
+                </p> -->
               </div>
             </div>
           </div>

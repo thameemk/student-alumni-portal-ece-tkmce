@@ -32,7 +32,7 @@
 						<div class="user-details row">
 							<p class="user-name col-lg-12 col-md-12 col-6"><a><?=$row['b_author']?></a> <span class="lnr lnr-user"></span></p>
 							<p class="date col-lg-12 col-md-12 col-6"><a><?=$row['b_date']?></a> <span class="lnr lnr-calendar-full"></span></p>
-							<p class="view col-lg-12 col-md-12 col-6"><a><?=$row['b_views']?></a> <span class="lnr lnr-eye"></span></p>
+							<!-- <p class="view col-lg-12 col-md-12 col-6"><a><?=$row['b_views']?></a> <span class="lnr lnr-eye"></span></p> -->
 						</div>
 					</div>
 					<div class="col-lg-9 col-md-9 ">
@@ -83,10 +83,7 @@
 					</div>
 					<div class="single-sidebar-widget newsletter-widget">
 						<h4 class="newsletter-title">Newsletter</h4>
-						<p>
-							Here, I focus on a range of items and features that we use in life without
-							giving them a second thought.
-						</p>
+					<p class="pb-5"></p>
 						<form action="<?=base_url("Pages/news_letter")?>" method="post">
 						<div class="form-group d-flex flex-row">
 							<div class="col-autos">
@@ -101,9 +98,9 @@
 							<button type="submit" class="bbtns">Subcribe</button>
 						</div>
 					</form>
-						<p class="text-bottom">
+						<!-- <p class="text-bottom">
 						You can <a href="#">unsubscribe</a> at any time
-						</p>
+						</p> -->
 					</div>
 				</div>
 			</div>

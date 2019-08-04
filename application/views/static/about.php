@@ -21,7 +21,9 @@
 				<div class="container-fluid">
 					<div class="row align-items-center">
 						<div class="col-lg-6 no-padding info-area-left">
-							<img class="img-fluid" src="img/about-img.jpg" alt="">
+							<img class="img-fluid ml-3" src="<?php echo base_url()?>assets/front/img/tkm_about.jpg" alt="">
+							<img class="img-fluid ml-3 mt-3" src="<?php echo base_url()?>assets/front/img/tkm_about_ece.jpg" alt="">
+
 						</div>
 						<div class="col-lg-6 info-area-right">
 							<h3 class="mb-2">The Department of Electronics & Communication - TKMCE</h3>
@@ -62,7 +64,7 @@
                         </div>
                         <div class="col-md-6 video-right justify-content-center align-items-center d-flex relative">
                         	<div class="overlay overlay-bg"></div>
-							<a class="play-btn" href="#"><img class="img-fluid mx-auto" src="img/play.png" alt="Loading image..."></a>
+							<!-- <a class="play-btn" href="#"><img class="img-fluid mx-auto" src="img/play.png" alt="Loading image..."></a> -->
                         </div>
                     </div>
 				</div>
