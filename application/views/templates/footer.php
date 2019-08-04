@@ -13,6 +13,20 @@
 				</div>
 				<br>
 			</footer>
+			<div class="header-top">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6 col-sm-6 col-8 header-top-left no-padding">
+							<ul>
+								<li><a href="<?php echo base_url()?>home">Home</a></li>
+								<li><a href="<?php echo base_url()?>privacypolicy">Privacy Policy</a></li>
+								<li><a href="<?php echo base_url()?>about">About Us</a></li>
+								<li><a href="<?php echo base_url()?>support">Support</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
 <!-- End footer Area -->
 <script src="<?php echo base_url ()?>assets/front/js/vendor/jquery-2.2.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

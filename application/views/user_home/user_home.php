@@ -14,7 +14,7 @@
                     <span class="photo__location"><?=$row['company']?></span>
                 </div>
             </header>
-            <h1 class="title mb-3"><?=$row['title']?></h1>
+            <h1 class="title ml-3 mr-3 mb-3"><?=$row['title']?></h1>
             <ul class="pt-1">
               <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Company / Organisation : </span><?=$row['place']?> </li>
               <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Location :</span> <?=$row['location']?> </li>

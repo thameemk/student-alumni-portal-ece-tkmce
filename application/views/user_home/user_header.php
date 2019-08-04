@@ -26,10 +26,21 @@
         </div> -->
         <div class="navigation__column">
             <ul class="navigations__links">
+              <li class="navigation__list-item">
+                  <a href="<?=base_url()?>User/home" class="navigation__link">
+                    <span>Home</span>
+                  </a>
+              </li>
                 <li class="navigation__list-item">
+                  	<?php if ($this->session->userdata('user_email') == TRUE) {?>
                     <a href="<?=base_url()?>Login/logout" class="navigation__link">
                       <span>Logout</span>
                     </a>
+                    <?php } else { ?>
+                      <a href="<?=base_url()?>login" class="navigation__link">
+                        <span>Login</span>
+                      </a>
+                    <?php }?>
                 </li>
                 <li class="navigation__list-item">
                     <a href="<?=base_url()?>User/submit" class="navigation__link">

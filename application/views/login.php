@@ -26,7 +26,7 @@
         </div>
         <?php endif; ?>
         <?php if($this->session->flashdata('logout_notification')): ?>
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-danger" role="alert">
         	<center><?php echo $this->session->flashdata('logout_notification'); ?></center>
         </div>
         <?php endif; ?>
@@ -41,7 +41,7 @@
 				<button type="submit" class="btn btn-primary submit mt-2">Login</button>
 				<p class="text-center mt-2">
           <a class="ml-3" href="<?=base_url()?>home">Home</a>
-          <a class="ml-3" href="<?=base_url()?>signup">Register here !</a>          
+          <a class="ml-3" href="<?=base_url()?>signup">Register here !</a>
 				</p>
 			</form>
 		</div>
