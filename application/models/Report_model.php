@@ -73,8 +73,8 @@ class Report_model extends CI_Model {
      $query = $this->db->get('login_users');
      return $query->result_array();
    }
-   public function userHome($showStatus=""){
-       $this->db->where('showStatus',$showStatus);
+   public function userHome(){
+       // $this->db->where('showStatus',$showStatus);
        $query = $this->db->get('feedHome');
        return $query->result_array();
    }
