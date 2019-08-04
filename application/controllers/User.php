@@ -65,6 +65,7 @@ class User extends CI_Controller {
     public function profile()
     {
         $user_email=$_SESSION['user_email'];
+        $data['user']=$this->report_model->userUploads($user_email);
         $this->db->where('user_email',$user_email);
         $query=$this->db->get('login_users');
         $row = $query->row();
@@ -74,13 +75,25 @@ class User extends CI_Controller {
             'user_company' => $row->user_company,
             'author_first_name' => $row->first_name,
             'author_last_name' => $row->last_name,
+            'phone'=>$row->phone,
+            'img'=> $row->gravatar,
             'validated' => true
         );
         $this->session->set_userdata($temp);
+        //count posts
+        $this->db->where('user_email',$user_email);
+        $temp2=$this->db->get('feedHome');
+        $data['num_rows'] =  $temp2->num_rows();
+        //session values
+        $data['img'] = $_SESSION['img'];
+        $data['user_company'] = $_SESSION['user_company'];
+        $data['user_email'] = $_SESSION['user_email'];
+        $data['phone'] = $_SESSION['phone'];
+
         $fullname =  $_SESSION['author_first_name']." ". $_SESSION['author_last_name'];  ;
         $data['title'] = $fullname;
         $this->load->view('user_home/user_header',$data);
-        $this->load->view('user_home/profile');
+        $this->load->view('user_home/profile',$data);
         $this->load->view('user_home/user_footer');
     }
     public function editprofile()

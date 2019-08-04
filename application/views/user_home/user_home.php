@@ -16,13 +16,13 @@
             </header>
             <h1 class="title mb-3"><?=$row['title']?></h1>
             <ul class="pt-1">
-              <li class="ml-3 mt-3 ">Company / Organisation : <?=$row['place']?> </li>
-              <li class="ml-3 mt-3 ">Location : <?=$row['location']?> </li>
-              <li class="ml-3 mt-3 ">Web Link : <a href="<?=$row['reg_link']?>"><?=$row['reg_link']?></a> </li>
-              <li class="ml-3 mt-3 ">Last Date : <?=$row['last_date']?> </li>
-              <li class="ml-3 mt-3 ">Email : <?=$row['email']?> </li>
-              <li class="ml-3 mt-3 ">Contact Number : <?=$row['phone']?> </li>
-              <li class="ml-3 mt-3 ">More Info : <?=$row['details']?> </li>
+              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Company / Organisation : </span><?=$row['place']?> </li>
+              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Location :</span> <?=$row['location']?> </li>
+              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Web Link : </span><a href="<?=$row['reg_link']?>"><?=$row['reg_link']?></a> </li>
+              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Last Date :</span> <?=$row['last_date']?> </li>
+              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Email :</span> <?=$row['email']?> </li>
+              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Contact Number :</span> <?=$row['phone']?> </li>
+              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">More Info :</span> <?=$row['details']?> </li>
             </ul>
             <div class="photo__info">
                 <div class="photo__add-comment-container"></div>

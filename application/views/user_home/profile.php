@@ -2,87 +2,46 @@
     <main id="profile">
         <header class="profile__header">
             <div class="profile__column">
-                <img src="images/avatar.jpg" />
+                <img height="200px" src="<?php echo base_url()?>assets/userhome/img/<?=$img?>" />
             </div>
             <div class="profile__column">
                 <div class="profile__title">
-                    <h3 class="profile__username">serranoarevalo</h3>
-                    <a href="edit-profile.html">Edit profile</a>
+                    <h3 class="profile__username"><?php echo $title; ?> </h3>
+                    <a href="<?php echo base_url();?>User/editprofile">Edit profile</a>
                     <i class="fa fa-cog fa-lg"></i>
                 </div>
                 <ul class="profile__stats">
                     <li class="profile__stat">
-                        <span class="stat__number">333</span> posts
-                    </li>
-                    <li class="profile__stat">
-                        <span class="stat__number">1234</span> followers
-                    </li>
-                    <li class="profile__stat">
-                        <span class="stat__number">36</span> following
+                        <span class="stat__number"><?php echo $num_rows;?></span> posts
                     </li>
                 </ul>
                 <p class="profile__bio">
-                    <span class="profile__full-name">
-                        Nicolás Serrano Arévalo
-                    </span> Doing whatever and eating Pho Lorem ipsum dolor sit amet consectetur, adipisicing
-                    elit. Ducimus suscipit praesentium eveniet quibusdam ipsam omnis fugit. Tempore voluptates ratione recusandae
-                    natus illo perspiciatis suscipit, odio consequuntur quasi obcaecati minus! Omnis.
-                    <a href="#">serranoarevalo.com</a>
+                  <ul>
+                    <li class="mt-3"><span style="-webkit-text-stroke: medium;">Company / Organaisation :</span> <?php echo $user_company;?></li>
+                    <li class="mt-3"><span style="-webkit-text-stroke: medium;">Email :</span> <?php echo $user_email;?></li>
+                    <li class="mt-3"><span style="-webkit-text-stroke: medium;">Email :</span> <?php echo $phone;?></li>
+                    <li class="mt-3"><span style="-webkit-text-stroke: medium;">Password :</span> <?php echo "•••••••";?></li>
+
                 </p>
             </div>
         </header>
-        <section class="profile__photos">
-            <div class="profile__photo">
-                <img src="images/feedPhoto.jpg" />
-                <div class="profile__photo-overlay">
-                    <span class="overlay__item">
-                        <i class="fa fa-heart"></i>
-                        486
-                    </span>
-                    <span class="overlay__item">
-                        <i class="fa fa-comment"></i>
-                        344
-                    </span>
-                </div>
+      </main>
+    <main id="feed">
+        <?php foreach ($user as $row) { ?>
+        <div class="photo">
+            <h1 class="title mt-3 ml-3 mr-3 mb-3"><?=$row['title']?></h1>
+            <ul class="pt-1">
+              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Company / Organisation :</span> <?=$row['place']?> </li>
+              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Location : </span><?=$row['location']?> </li>
+              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Web Link :</span> <a href="<?=$row['reg_link']?>"><?=$row['reg_link']?></a> </li>
+              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Last Date :</span> <?=$row['last_date']?> </li>
+              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Email : </span><?=$row['email']?> </li>
+              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Contact Number : </span><?=$row['phone']?> </li>
+              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">More Info :</span> <?=$row['details']?> </li>
+            </ul>
+            <div class="photo__info">
+                <div class="photo__add-comment-container"></div>
             </div>
-            <div class="profile__photo">
-                <img src="images/feedPhoto.jpg" />
-                <div class="profile__photo-overlay">
-                    <span class="overlay__item">
-                            <i class="fa fa-heart"></i>
-                            486
-                        </span>
-                    <span class="overlay__item">
-                            <i class="fa fa-comment"></i>
-                            344
-                        </span>
-                </div>
-            </div>
-            <div class="profile__photo">
-                <img src="images/feedPhoto.jpg" />
-                <div class="profile__photo-overlay">
-                    <span class="overlay__item">
-                                <i class="fa fa-heart"></i>
-                                486
-                            </span>
-                    <span class="overlay__item">
-                                <i class="fa fa-comment"></i>
-                                344
-                            </span>
-                </div>
-            </div>
-            <div class="profile__photo">
-                <img src="images/feedPhoto.jpg" />
-                <div class="profile__photo-overlay">
-                    <span class="overlay__item">
-                                    <i class="fa fa-heart"></i>
-                                    486
-                                </span>
-                    <span class="overlay__item">
-                                    <i class="fa fa-comment"></i>
-                                    344
-                                </span>
-                </div>
-            </div>
-        </section>
+        </div>
+      <?php } ?>
     </main>

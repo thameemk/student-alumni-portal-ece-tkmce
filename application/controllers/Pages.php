@@ -28,7 +28,7 @@ class Pages extends CI_Controller {
       $temp = ucfirst($page);
       $data['page_title'] = $temp;
       $data['about'] =  $this->report_model->info($id='1000');
-      $data['events']=$this->report_model->updates();
+      $data['events']=$this->report_model->updates();      
       $this->load->view('templates/header',$data);
       $this->load->view('static/'.$page,$data);
       $this->load->view('templates/footer');
