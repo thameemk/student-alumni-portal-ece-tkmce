@@ -1,5 +1,5 @@
 <!-- start banner Area -->
-			<section class="banner-area relative about-banner" id="home">
+			<section class="banner-area relative about-banner">
 				<div class="overlay overlay-bg"></div>
 				<div class="container">
 					<div class="row d-flex align-items-center justify-content-center">
@@ -21,8 +21,8 @@
 				<div class="container-fluid">
 					<div class="row align-items-center">
 						<div class="col-lg-6 no-padding info-area-left">
-							<img class="img-fluid ml-3" src="<?php echo base_url()?>assets/front/img/tkm_about.jpg" alt="">
-							<img class="img-fluid ml-3 mt-3" src="<?php echo base_url()?>assets/front/img/tkm_about_ece.jpg" alt="">
+							<img class="img-fluid ml-3 mr-3" src="<?php echo base_url()?>assets/front/img/tkm_about.jpg" alt="">
+							<img class="img-fluid ml-3 mt-3 mr-3" src="<?php echo base_url()?>assets/front/img/tkm_about_ece.jpg" alt="">
 
 						</div>
 						<div class="col-lg-6 info-area-right">

@@ -61,11 +61,7 @@
 						<li><a href="<?php echo base_url();?>about">About Us</a></li>
 						<li><a href="<?php echo base_url();?>blog">Blog</a></li>
 						<li><a href="<?php echo base_url();?>updates">Updates</a></li>
-						<?php if ($this->session->userdata('user_email') == TRUE) {?>
-						<li><a href="<?php echo base_url();?>login">My Profile</a></li>
-						<?php } else { ?>
-						<li><a href="<?php echo base_url();?>login">Login</a></li>
-					<?php }?>
+						<li><a href="<?php echo base_url();?>myportal">My Portal</a></li>						
 					</ul>
 				</nav><!-- #nav-menu-container -->
 			</div>

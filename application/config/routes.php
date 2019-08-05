@@ -14,7 +14,7 @@ $route['success'] = 'pages/success';
 $route['login'] = 'Login/index';
 $route['signup'] = 'Signup/index';
 
-$route['yourportal'] ="pages/portal";
+$route['myportal'] ="pages/portal";
 
 
 $route['404_override'] = '';
