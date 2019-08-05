@@ -19,31 +19,22 @@
 			<!-- Start info Area -->
 			<section class="info-area pb-120 mt-5">
 				<div class="container-fluid">
-					<div class="row align-items-center">
-						<div class="col-lg-6 no-padding info-area-left">
-							<img class="img-fluid ml-3 mr-3" src="<?php echo base_url()?>assets/front/img/tkm_about.jpg" alt="">
-							<img class="img-fluid ml-3 mt-3 mr-3" src="<?php echo base_url()?>assets/front/img/tkm_about_ece.jpg" alt="">
-
-						</div>
-						<div class="col-lg-6 info-area-right">
-							<h3 class="mb-2">The Department of Electronics & Communication - TKMCE</h3>
+					<div class="row align-items-center">						
+						<div class="col-lg-12">
+							<h3 class="mb-2 text-center">The Department of Electronics & Communication - TKMCE</h3>
                     <?php foreach($about as $row){ ?>
-							       <p align="justify"><?php echo $row['details']; ?></p>
+							       <p class="ml-5 mr-5"  align="justify"><?php echo $row['details']; ?></p>
                    <?php } ?>
 						</div>
 					</div>
 				</div>
 			</section>
-			<!-- End info Area -->
+		
 
-			<!-- Start course-mission Area -->
 			<section class="course-mission-area pb-120">
 				<div class="container">
-
                     <div class="row">
                         <div class="col-md-6 accordion-left">
-
-                            <!-- accordion 2 start-->
                             <dl class="accordion">
                                 <dt>
                                     <a id="vision" href="">Vision</a>
@@ -59,14 +50,10 @@
                                     <li>Provide robust academic, research and co – curricular ambience for moulding graduates to high quality professionals in practice and higher education
                                     <li>Prepare graduates adaptable to the changing requirements of the society, through lifelong learning coupled with an ethical outlook and dedication.
                                 </dd>
-                            </dl>
-                            <!-- accordion 2 end-->
+                            </dl>                      
                         </div>
                         <div class="col-md-6 video-right justify-content-center align-items-center d-flex relative">
-                        	<div class="overlay overlay-bg"></div>
-							<!-- <a class="play-btn" href="#"><img class="img-fluid mx-auto" src="img/play.png" alt="Loading image..."></a> -->
                         </div>
                     </div>
 				</div>
 			</section>
-			<!-- End course-mission Area -->
