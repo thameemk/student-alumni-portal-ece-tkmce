@@ -16,7 +16,7 @@
 <body>
     <nav class="navigation">
         <div class="navigation__column">
-            <a href="<?php echo base_url();?>muportal">
+            <a href="<?php echo base_url();?>myportal">
             <img src="<?php echo base_url ()?>assets/front/img/ece_logo.png" alt="" title="" />
             </a>
         </div>
