@@ -12,15 +12,15 @@ class User extends CI_Controller {
             redirect('login');
         }
     }
-    public function home()
-    {
-        $data['title'] = 'Home';
-        // $data['feed']=$this->report_model->userHome($showStatus="1");
-        $data['feed']=$this->report_model->userHome();        
-        $this->load->view('user_home/user_header',$data);
-        $this->load->view('user_home/user_home',$data);
-        $this->load->view('user_home/user_footer');
-    }
+    // public function home()
+    // {
+    //     $data['title'] = 'Home';
+    //     // $data['feed']=$this->report_model->userHome($showStatus="1");
+    //     $data['feed']=$this->report_model->userHome();        
+    //     $this->load->view('user_home/user_header',$data);
+    //     $this->load->view('user_home/user_home',$data);
+    //     $this->load->view('user_home/user_footer');
+    // }
     public function submit()
     {
         $data['title'] = 'New post';
