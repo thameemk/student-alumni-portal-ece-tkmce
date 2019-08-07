@@ -24,7 +24,7 @@ class Login extends CI_Controller {
         }
         else {
           $this->session->set_flashdata('msg', 'Login success');
-            redirect('User/home');
+            redirect('Pages/myportal');
 
         }
 

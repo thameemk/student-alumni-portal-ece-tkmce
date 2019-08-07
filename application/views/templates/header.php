@@ -5,7 +5,7 @@
 	<!-- Mobile Specific Meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Favicon-->
-	<link rel="shortcut icon" href="<?php echo base_url ()?>assets/front/img/fav.png">
+	<link rel="shortcut icon" href="<?php echo base_url ()?>assets/front/img/ece_logo.png">
 	<!-- Author Meta -->
 	<meta name="author" content="thameemk612">
 	<!-- Meta Description -->
@@ -61,7 +61,7 @@
 						<li><a href="<?php echo base_url();?>about">About Us</a></li>
 						<li><a href="<?php echo base_url();?>blog">Blog</a></li>
 						<li><a href="<?php echo base_url();?>updates">Updates</a></li>
-						<li><a href="<?php echo base_url();?>myportal">My Portal</a></li>						
+						<li><a href="<?php echo base_url();?>myportal">My Portal</a></li>
 					</ul>
 				</nav><!-- #nav-menu-container -->
 			</div>
