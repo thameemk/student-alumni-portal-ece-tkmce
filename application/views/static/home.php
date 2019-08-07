@@ -83,7 +83,7 @@
 							</div>
 						</div>
 					<?php } ?>
-					</div>
+					<!-- </div> -->
 				</div><center>
 				<a href="<?php echo base_url();?>updates" class="text-uppercase primary-btn mx-auto mt-40">Load more..</a>
 			</center>
