@@ -63,7 +63,7 @@
 						</div>
 					</div>
 					<div class="row">
-					<div class="active-upcoming-event-carusel">
+					<!-- <div class="active-upcoming-event-carusel"> -->
 						<?php
 			      $i=0;
 			      foreach($events as $row){
