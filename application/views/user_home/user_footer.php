@@ -6,8 +6,7 @@
                    <li class="footer__list-item"><a href="<?php echo base_url()?>about" class="footer__link">About Us</a></li>
                    <li class="footer__list-item"><a href="<?php echo base_url()?>support" class="footer__link">Support</a></li>
                    <li class="footer__list-item"><a href="<?php echo base_url()?>blog" class="footer__link">Blog</a></li>
-                   <li class="footer__list-item"><a href="<?php echo base_url()?>updates" class="footer__link">Updates</a></li>
-                   <li class="footer__list-item"><a href="<?php echo base_url()?>privacypolicy" class="footer__link">Privacy policy</a></li>
+                   <li class="footer__list-item"><a href="<?php echo base_url()?>updates" class="footer__link">Updates</a></li>                   
                </ul>
            </nav>
        </div>

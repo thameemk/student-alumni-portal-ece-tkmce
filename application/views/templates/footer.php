@@ -19,7 +19,6 @@
 						<div class="col-lg-6 col-sm-6 col-8 header-top-left no-padding">
 							<ul>
 								<li><a href="<?php echo base_url()?>home">Home</a></li>
-								<li><a href="<?php echo base_url()?>privacypolicy">Privacy Policy</a></li>
 								<li><a href="<?php echo base_url()?>about">About Us</a></li>
 								<li><a href="<?php echo base_url()?>support">Support</a></li>
 							</ul>
