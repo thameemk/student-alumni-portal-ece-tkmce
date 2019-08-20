@@ -67,6 +67,9 @@
           <a class="ml-3" href="<?=base_url()?>home">Home</a>
           <a class="ml-3" href="<?=base_url()?>login">Already have an account !</a>
         </p>
+        <p class="text-center mt-2">
+          <a class="ml-3" href="<?=base_url()?>privacypolicy">By creating an account, you are agreeing our privacy terms and condition</a>
+        </p>
 			</form>
 		</div>
 
