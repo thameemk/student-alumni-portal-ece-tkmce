@@ -5,6 +5,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147260508-1"></script>
+  	<script>
+  	  window.dataLayer = window.dataLayer || [];
+  	  function gtag(){dataLayer.push(arguments);}
+  	  gtag('js', new Date());
+
+  	  gtag('config', 'UA-147260508-1');
+  	</script>
+    <link rel="shortcut icon" href="<?php echo base_url ()?>assets/front/img/ece_logo.png">    
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $title; ?> - Department of ECE</title>
     <link rel="stylesheet" href="<?php echo base_url ()?>assets/front/css/bootstrap.css">
@@ -25,7 +35,7 @@
             <input type="text" placeholder="Search">
         </div> -->
         <div class="navigation__column">
-            <ul class="navigations__links">              
+            <ul class="navigations__links">
                 <li class="navigation__list-item">
                   	<?php if ($this->session->userdata('user_email') == TRUE) {?>
                     <a href="<?=base_url()?>Login/logout" class="navigation__link">

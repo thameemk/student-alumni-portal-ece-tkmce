@@ -4,6 +4,16 @@
 <head>
 	<!-- Mobile Specific Meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147260508-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-147260508-1');
+	</script>
+
 	<!-- Favicon-->
 	<link rel="shortcut icon" href="<?php echo base_url ()?>assets/front/img/ece_logo.png">
 	<!-- Author Meta -->
