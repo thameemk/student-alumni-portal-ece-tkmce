@@ -103,8 +103,8 @@ class Pages extends CI_Controller {
     public function portal()
     {
         $data['title'] = 'My portal';
-        // $data['feed']=$this->report_model->userHome($showStatus="1");
-        $data['feed']=$this->report_model->userHome();
+        $data['feed']=$this->report_model->userHome($showStatus="1");
+        // $data['feed']=$this->report_model->userHome();
         $this->load->view('user_home/user_header',$data);
         $this->load->view('user_home/user_home',$data);
         $this->load->view('user_home/user_footer');
