@@ -16,12 +16,9 @@
 
 	<!-- Favicon-->
 	<link rel="shortcut icon" href="<?php echo base_url ()?>assets/front/img/ece_logo.png">
-	<!-- Author Meta -->
-	<meta name="author" content="thameemk612">
-	<!-- Meta Description -->
-	<meta name="description" content="">
-	<!-- Meta Keyword -->
-	<meta name="keywords" content="">
+
+	<meta name="description" content="Official website of Department of Electronics and Communication Engineering, TKM College of Engineering.">
+	<meta name="keywords" content=",ECE,Electronics and Communication Engineering,TKMCE,TKM College of engineering,">
 	<!-- meta character set -->
 	<meta charset="UTF-8">
 	<!-- Site Title -->
