@@ -11,39 +11,31 @@ class Email extends CI_Controller {
 
     public function send(){
       // $api = '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';
-
-      // require("sendgrid/sendgrid-php.php");
-      require("vendor/autoload.php");      
-      $sendgrid = new SendGrid("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");
-      $email    = new SendGrid\Email();
-      $email->addTo("thameemk612@yahoo.com")
-            ->setFrom("admin@ecetkmce.live")
-            ->setSubject("Email Verification")
-            ->setHtml("This is to verify your email address");
-      $sendgrid->send($email);
-      echo $this->email->print_debugger();
+      // using SendGrid's PHP Library
+      // https://github.com/sendgrid/sendgrid-php
+      // require 'vendor/autoload.php'; // If you're using Composer (recommended)
+      // Comment out the above line if not using Composer
+      require("https://www.ecetkmce.live/sendgrid/sendgrid-php.php");
+      // If not using Composer, uncomment the above line
+      $email = new \SendGrid\Mail\Mail();
+      $email->setFrom("test@example.com", "Example User");
+      $email->setSubject("Sending with SendGrid is Fun");
+      $email->addTo("thameemk612@yahoo.com", "Example User");
+      $email->addContent(
+          "text/plain", "and easy to do anywhere, even with PHP"
+      );
+      $email->addContent(
+          "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
+      );
+      $sendgrid = new \SendGrid(getenv('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'));
+      try {
+          $response = $sendgrid->send($email);
+          print $response->statusCode() . "\n";
+          print_r($response->headers());
+          print $response->body() . "\n";
+      } catch (Exception $e) {
+          echo 'Caught exception: ',  $e->getMessage(), "\n";
+      }
     }
-    public function send1(){
-      $this->load->library('email');
 
-      $this->email->initialize(array(
-        'protocol' => 'smtp',
-        'smtp_host' => 'smtp.sendgrid.net',
-        'smtp_user' => 'sendgridusername',
-        'smtp_pass' => 'sendgridpassword',
-        'smtp_port' => 587,
-        'crlf' => "\r\n",
-        'newline' => "\r\n"
-      ));
-
-      $this->email->from('your@example.com', 'Your Name');
-      $this->email->to('someoneexampexample@example.com');
-      // $this->email->cc('another@another-example.com');
-      // $this->email->bcc('them@their-example.com');
-      $this->email->subject('Email Test');
-      $this->email->message('Testing the email class.');
-      $this->email->send();
-
-      echo $this->email->print_debugger();
-    }
 }
