@@ -15,7 +15,7 @@ class Email extends CI_Controller {
       // https://github.com/sendgrid/sendgrid-php
       // require 'vendor/autoload.php'; // If you're using Composer (recommended)
       // Comment out the above line if not using Composer
-      require("https://www.ecetkmce.live/sendgrid/sendgrid-php.php");
+      require("../sendgrid/sendgrid-php.php");
       // If not using Composer, uncomment the above line
       $email = new \SendGrid\Mail\Mail();
       $email->setFrom("test@example.com", "Example User");
