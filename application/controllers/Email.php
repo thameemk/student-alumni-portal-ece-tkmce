@@ -12,7 +12,7 @@ class Email extends CI_Controller {
     public function send(){
       // $api = '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';
 
-      require("sendgrid-php/sendgrid-php.php");
+      require("var/www/ecetkmce.live/sendgrid-php/sendgrid-php.php");
       $sendgrid = new SendGrid("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");
       $email    = new SendGrid\Email();
       $email->addTo("thameemk612@yahoo.com")
@@ -20,7 +20,7 @@ class Email extends CI_Controller {
             ->setSubject("Email Verification")
             ->setHtml("This is to verify your email address");
       $sendgrid->send($email);
-      echo $this->email->print_debugger();      
+      echo $this->email->print_debugger();
     }
     public function send1(){
       $this->load->library('email');
