@@ -12,7 +12,8 @@ class Email extends CI_Controller {
     public function send(){
       // $api = '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';
 
-      require("sendgrid/sendgrid-php.php");
+      // require("sendgrid/sendgrid-php.php");
+      require("vendor/autoload.php");      
       $sendgrid = new SendGrid("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");
       $email    = new SendGrid\Email();
       $email->addTo("thameemk612@yahoo.com")
