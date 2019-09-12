@@ -37,5 +37,27 @@ class Email extends CI_Controller {
           echo 'Caught exception: ',  $e->getMessage(), "\n";
       }
     }
+    public function send1(){
+      $this->load->library('email');
+      $this->email->initialize(array(
+        'protocol' => 'smtp',
+        'smtp_host' => 'smtp.sendgrid.net',
+        'smtp_user' => 'thameemk',
+        'smtp_pass' => 'tAJAk23V6ar6A4b',
+        'smtp_port' => 587,
+        'crlf' => "\r\n",
+        'newline' => "\r\n"
+      ));
+
+      $this->email->from('info@ecetkmce.live', 'No Reply');
+      $this->email->to('thameemk612@yahoo.com');
+      // $this->email->cc('another@another-example.com');
+      // $this->email->bcc('them@their-example.com');
+      $this->email->subject('Email Test');
+      $this->email->message('Testing the email class.');
+      $this->email->send();
+
+      echo $this->email->print_debugger();
+    }
 
 }
