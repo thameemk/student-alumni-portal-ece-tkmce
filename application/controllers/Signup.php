@@ -15,7 +15,7 @@ class Signup extends CI_Controller {
         $this->load->view('signup');
     }
     public function process(){
-      require("./sendgrid/vendor/autoload.php");
+      // require("./sendgrid/vendor/autoload.php");
       $data = $this->input->post();
       $data = $this->security->xss_clean($data);
       $this->form_validation->set_rules('user_email','User Email','required|is_unique[login_users.user_email]');
