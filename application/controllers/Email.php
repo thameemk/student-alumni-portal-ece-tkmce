@@ -10,7 +10,8 @@ class Email extends CI_Controller {
     }
 
     public function send(){
-          require '/vendor/autoload.php';
+	  //require("./sendgrid-php.php");
+          require("./sendgrid/vendor/autoload.php");
         	// contains a variable called: $API_KEY that is the API Key.
         	// You need this API_KEY created on the Sendgrid website.
         	// include_once('./credentials.php');
