@@ -13,9 +13,9 @@ class Email extends CI_Controller {
       // $api = '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';
       // using SendGrid's PHP Library
       // https://github.com/sendgrid/sendgrid-php
-      // require 'vendor/autoload.php'; // If you're using Composer (recommended)
+       require 'vendor/autoload.php'; // If you're using Composer (recommended)
       // Comment out the above line if not using Composer
-      require("sendgrid-php/sendgrid-php.php");
+     // require("sendgrid-php/sendgrid-php.php");
       // If not using Composer, uncomment the above line
       $email = new \SendGrid\Mail\Mail();
       $email->setFrom("info@ecetkmce.live", "INFO ECETKMCE");
