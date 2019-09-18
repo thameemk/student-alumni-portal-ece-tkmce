@@ -18,7 +18,7 @@ class Email extends CI_Controller {
       require("sendgrid-php/sendgrid-php.php");
       // If not using Composer, uncomment the above line
       $email = new \SendGrid\Mail\Mail();
-      $email->setFrom("test@example.com", "Example User");
+      $email->setFrom("info@ecetkmce.live", "INFO ECETKMCE");
       $email->setSubject("Sending with SendGrid is Fun");
       $email->addTo("thameemk612@yahoo.com", "Example User");
       $email->addContent(
