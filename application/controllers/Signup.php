@@ -59,8 +59,8 @@ class Signup extends CI_Controller {
                           </html>
                           ";
                       $email = new \SendGrid\Mail\Mail();
-                      $email->setFrom("no-reply@ecetkmce.live", "No-Reply ECETKMCE");
-                      $email->setSubject("Sending with SendGrid is Fun");
+                      $email->setFrom("no-reply@ecetkmce.live", "Support Center ECETKMCE");
+                      $email->setSubject("Verify Your Email");
                       $email->addTo($this->input->post('user_email'), $this->input->post('firstname'));
                       $email->addContent(
                         "text/html", $message
@@ -69,8 +69,8 @@ class Signup extends CI_Controller {
 
                       try {
                           $response = $sendgrid->send($email);
-                          // $status = $response->statusCode();
-                          print $response->statusCode() . "\n";exit;
+                          $status = $response->statusCode();
+                          // print $response->statusCode() . "\n";
                         //  print_r($response->headers());
                          // print $response->body() . "\n";
                       } catch (Exception $e) {
