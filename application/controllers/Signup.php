@@ -54,7 +54,7 @@ class Signup extends CI_Controller {
                             <p>Email: ".$this->input->post('user_email')."</p>
                             <p>Password: ".$this->input->post('password')."</p>
                             <p>Please click the link below to activate your account.</p>
-                            <h4><a href='".base_url()."signup/activate/".$code."/".$this->input->post('user_email')."'>Activate My Account</a></h4>
+                            <h4><a href='".base_url()."signup/activate/".$code."/".$this->input->post('phone')."'>Activate My Account</a></h4>
                           </body>
                           </html>
                           ";
@@ -102,14 +102,14 @@ class Signup extends CI_Controller {
   }
   public function activateAccount(){
     $code = $this->uri->segment(3);
-    $email = $this->uri->segment(4);
+    $phone = $this->uri->segment(4);
     //fetch user details
-    $user = $this->report_model->userRegisterActive($email);
+    $user = $this->report_model->userRegisterActive($phone);
     //if code matches
     if($user['code'] == $code){
         //update user active status
         $data['active_status'] = true;
-        $query = $this->report_model->activate($data, $email);
+        $query = $this->report_model->activate($data, $phone);
         if($query){
           $this->session->set_flashdata('msg', 'User activated successfully.Login to Continue');
           $this->load->view('login');
