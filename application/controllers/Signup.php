@@ -102,9 +102,9 @@ class Signup extends CI_Controller {
   }
   public function activateAccount(){
     $code = $this->uri->segment(3);
-    echo $code;
+    // echo $code;
     $phone = $this->uri->segment(4);
-    echo $phone;
+    // echo $phone;
     //fetch user details
     $user = $this->report_model->getUser($phone);
     //if code matches

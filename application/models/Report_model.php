@@ -73,8 +73,8 @@ class Report_model extends CI_Model {
  		return $query->row_array();
    }
    public function userActivateAccount($data,$phone){
-     $this->db->where('users.phone', $phone);
-     return $this->db->update('users', $data);
+     $this->db->where('login_users.phone', $phone);
+     return $this->db->update('login_users', $data);
    }
    public function userSession($email=""){
      $this->db->where('user_email',$email);
