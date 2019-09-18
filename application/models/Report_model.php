@@ -68,9 +68,13 @@ class Report_model extends CI_Model {
    public function userRegister($data){
      $this->db->insert('login_users', $data);
    }
-   public function userRegisterActive($phone){
+   public function getUser($phone){
     $query = $this->db->get_where('login_users',array('phone'=>$phone));
  		return $query->row_array();
+   }
+   public function userActivateAccount($data,$phone){
+     $this->db->where('users.phone', $phone);
+     return $this->db->update('users', $data);
    }
    public function userSession($email=""){
      $this->db->where('user_email',$email);
