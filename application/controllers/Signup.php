@@ -54,7 +54,7 @@ class Signup extends CI_Controller {
                             <p>Email: ".$this->input->post('user_email')."</p>
                             <p>Password: ".$this->input->post('password')."</p>
                             <p>Please click the link below to activate your account.</p>
-                            <h4><a href='".base_url()."signup/activate/".$code."'>Activate My Account</a></h4>
+                            <h4><a href='".base_url()."signup/activate/".$code."/".$this->input->post('user_email')."'>Activate My Account</a></h4>
                           </body>
                           </html>
                           ";
@@ -85,6 +85,7 @@ class Signup extends CI_Controller {
                           'phone' => $this->input->post('phone'),
                           'year_pass' => $this->input->post('passyear'),
                           'user_password' => password_hash($this->input->post('password'),PASSWORD_BCRYPT),
+                          'code' => $code,
                         );
                         $this->report_model->userRegister($data);
                         $this->session->set_flashdata('msg', 'Check your email for Verification link!');
@@ -97,6 +98,30 @@ class Signup extends CI_Controller {
 
                   }
                 }
+    }
+  }
+  public function activateAccount(){
+    $code = $this->uri->segment(3);
+    $email = $this->uri->segment(4);
+    //fetch user details
+    $user = $this->report_model->userRegisterActive($email);
+    //if code matches
+    if($user['code'] == $code){
+        //update user active status
+        $data['active_status'] = true;
+        $query = $this->report_model->activate($data, $email);
+        if($query){
+          $this->session->set_flashdata('msg', 'User activated successfully.Login to Continue');
+          $this->load->view('login');
+        }
+        else{
+          $this->session->set_flashdata('msgreq', 'Something went wrong in activating account');
+          redirect('signup');
+        }
+    }
+    else{
+      $this->session->set_flashdata('msgreq', 'Cannot activate account. Code didnt match');
+      redirect('signup');
     }
   }
 

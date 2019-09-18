@@ -66,7 +66,11 @@ class Report_model extends CI_Model {
      $this->db->insert('feedHome', $data);
    }
    public function userRegister($data){
-     $this->db->insert('login_users', $data);     
+     $this->db->insert('login_users', $data);
+   }
+   public function userRegisterActive($email){
+    $query = $this->db->get_where('login_users',array('user_email'=>$email));
+ 		return $query->row_array();
    }
    public function userSession($email=""){
      $this->db->where('user_email',$email);
