@@ -39,28 +39,33 @@ class Report_model extends CI_Model {
      $this->db->where('user_email',$user_email);
 
      $query=$this->db->get('login_users');
-     // $num_rows=$this->db->count_all_results('userlogin');
+     $status = $query['code'];
+     if($status == 1){
+         $num_rows=$query->num_rows();
+         if($num_rows == 1)
+         {
+               $row = $query->row();
+               if (password_verify($password, $row->user_password)) {
+                   $data = array(
+                       'lid' => $row->lid,
+                       'user_email' => $row->user_email,
+                       'validated' => true
+                   );
+                   $this->session->set_userdata($data);
+                   return true;
+               }
+               else {
+                   return false;
+               }
 
-     $num_rows=$query->num_rows();
-     if($num_rows == 1)
-     {
-           $row = $query->row();
-           if (password_verify($password, $row->user_password)) {
-               $data = array(
-                   'lid' => $row->lid,
-                   'user_email' => $row->user_email,
-                   'validated' => true
-               );
-               $this->session->set_userdata($data);
                return true;
-           } else {
-               return false;
+
            }
-
-           return true;
-
-       }
-       return false;
+           return false;
+      }
+      else {
+        return false;
+      }
    }
    public function form($data){
      $this->db->insert('feedHome', $data);

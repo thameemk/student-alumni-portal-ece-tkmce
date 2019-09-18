@@ -32,7 +32,7 @@ class Login extends CI_Controller {
     }
     public function logout() {
         $this->session->sess_destroy();
-        $this->session->set_flashdata('logout_notification', 'Logged out');
+        $this->session->set_flashdata('msg', 'Logged out');
         $this->load->view('login');
     }
 }

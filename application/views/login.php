@@ -27,6 +27,11 @@
         <?php endif; ?>
         <?php if($this->session->flashdata('logout_notification')): ?>
         <div class="alert alert-danger" role="alert">
+        	<center><?php echo $this->session->flashdata('msg'); ?></center>
+        </div>
+        <?php endif; ?>
+        <?php if($this->session->flashdata('success')): ?>
+        <div class="alert alert-success" role="alert">
         	<center><?php echo $this->session->flashdata('logout_notification'); ?></center>
         </div>
         <?php endif; ?>
