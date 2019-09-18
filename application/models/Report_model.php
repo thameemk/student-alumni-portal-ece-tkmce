@@ -39,7 +39,9 @@ class Report_model extends CI_Model {
      $this->db->where('user_email',$user_email);
 
      $query=$this->db->get('login_users');
-     $status = $query['code'];
+     $data = $query->row_array();
+     $status = $data['active_status'];
+     // echo $status;exit;
      if($status == 1){
          $num_rows=$query->num_rows();
          if($num_rows == 1)
@@ -64,7 +66,7 @@ class Report_model extends CI_Model {
            return false;
       }
       else {
-        return false;
+        return fail;
       }
    }
    public function form($data){

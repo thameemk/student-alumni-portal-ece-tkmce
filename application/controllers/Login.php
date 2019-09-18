@@ -18,9 +18,14 @@ class Login extends CI_Controller {
         $result = $this->report_model->login();
 
         if(! $result){
-            // If user did not validate, then show them login page again
+            if($result == 'fail'){
+              $this->session->set_flashdata('msg', 'Verify Your Email Address');
+              redirect('login');
+            }
+            else{
             $this->session->set_flashdata('msg', 'Email or Password is incorrect');
-            $this->load->view('login');
+            redirect('login');
+          }
         }
         else {
           $this->session->set_flashdata('msg', 'Login success');
