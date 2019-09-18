@@ -30,7 +30,7 @@ class Email extends CI_Controller {
           $sendgrid = new \SendGrid('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');
           try {
               $response = $sendgrid->send($email);
-            //  print $response->statusCode() . "\n";
+             print $response->statusCode() . "\n";
             //  print_r($response->headers());
              // print $response->body() . "\n";
           } catch (Exception $e) {
@@ -61,4 +61,3 @@ class Email extends CI_Controller {
     }
 
 }
-

@@ -15,7 +15,7 @@ class Signup extends CI_Controller {
         $this->load->view('signup');
     }
     public function process(){
-      // require("./sendgrid/vendor/autoload.php");
+      require("./sendgrid/vendor/autoload.php");
       $data = $this->input->post();
       $data = $this->security->xss_clean($data);
       $this->form_validation->set_rules('user_email','User Email','required|is_unique[login_users.user_email]');
@@ -62,7 +62,9 @@ class Signup extends CI_Controller {
                       $email->setFrom("no-reply@ecetkmce.live", "No-Reply ECETKMCE");
                       $email->setSubject("Sending with SendGrid is Fun");
                       $email->addTo("thameemk612@gmail.com", "Thameem");
-                      $email->addContent("bhh");
+                      $email->addContent(
+                        "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"                        
+                      );
                       $sendgrid = new \SendGrid('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');
 
                       try {
