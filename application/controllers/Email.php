@@ -15,7 +15,7 @@ class Email extends CI_Controller {
         	// contains a variable called: $API_KEY that is the API Key.
         	// You need this API_KEY created on the Sendgrid website.
         	// include_once('./credentials.php');
-          $API_KEY = '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';
+          // $API_KEY = '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';
 
           $email = new \SendGrid\Mail\Mail();
           $email->setFrom("info@ecetkmce.live", "INFO ECETKMCE");
