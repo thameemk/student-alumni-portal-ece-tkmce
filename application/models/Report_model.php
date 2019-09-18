@@ -67,6 +67,7 @@ class Report_model extends CI_Model {
    }
    public function userRegister($data){
      $this->db->insert('login_users', $data);
+     return $this->db->insert_id();     
    }
    public function userSession($email=""){
      $this->db->where('user_email',$email);

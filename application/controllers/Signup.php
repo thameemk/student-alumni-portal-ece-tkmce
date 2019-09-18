@@ -15,6 +15,7 @@ class Signup extends CI_Controller {
         $this->load->view('signup');
     }
     public function process(){
+      require("./sendgrid/vendor/autoload.php");
       $data = $this->input->post();
       $data = $this->security->xss_clean($data);
       $this->form_validation->set_rules('user_email','User Email','required|is_unique[login_users.user_email]');
@@ -48,9 +49,48 @@ class Signup extends CI_Controller {
                       'year_pass' => $this->input->post('passyear'),
                       'user_password' => password_hash($this->input->post('password'),PASSWORD_BCRYPT),
                     );
-                    $this->report_model->userRegister($data);
-                    $this->session->set_flashdata('msg', 'Registration Success!');
-                    redirect('signup');
+                    $lid = $this->report_model->userRegister($data);
+                    //generate simple random code
+                    $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                    $code = substr(str_shuffle($set), 0, 12);
+                    $message = 	"
+                          <html>
+                          <head>
+                            <title>Verification Code</title>
+                          </head>
+                          <body>
+                            <h2>Thank you for Registering.</h2>
+                            <p>Your Account:</p>
+                            <p>Email: ".$this->input->post('user_email')."</p>
+                            <p>Password: ".$this->input->post('password')."</p>
+                            <p>Please click the link below to activate your account.</p>
+                            <h4><a href='".base_url()."signup/activate/".$id."/".$code."'>Activate My Account</a></h4>
+                          </body>
+                          </html>
+                          ";
+                      $email = new \SendGrid\Mail\Mail();
+                      $email->setFrom("no-reply@ecetkmce.live", "No-Reply ECETKMCE");
+                      $email->setSubject("Sending with SendGrid is Fun");
+                      $email->addTo($this->input->post('user_email'), $this->input->post('firstname'));
+                      $email->addContent($message);
+                      $sendgrid = new \SendGrid('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');
+                      try {
+                          $response = $sendgrid->send($email);
+                          $status = $response->statusCode();
+                        //  print_r($response->headers());
+                         // print $response->body() . "\n";
+                      } catch (Exception $e) {
+                          echo 'Caught exception: ',  $e->getMessage(), "\n";
+                      }
+                      if($status=='202'){
+                        $this->session->set_flashdata('msg', 'Check your email for Verification link!');
+                        redirect('signup');
+                      }
+                      else{
+                        $this->session->set_flashdata('msgreq', 'Some error has been occured. Contact Web admin!');
+                        redirect('signup');
+                      }
+
                   }
                 }
     }
