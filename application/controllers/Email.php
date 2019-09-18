@@ -17,29 +17,25 @@ class Email extends CI_Controller {
         	// include_once('./credentials.php');
           $API_KEY = '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';
 
-        	$FROM_EMAIL = 'info@ecetkmce.live';
-        	// they dont like when it comes from @gmail, prefers business emails
-        	$TO_EMAIL = 'thameemk612@yahoo.com';
-        	// Try to be nice. Take a look at the anti spam laws. In most cases, you must
-        	// have an unsubscribe. You also cannot be misleading.
-        	$subject = "ADMIN TEST";
-        	$from = new SendGrid\Email(null, $FROM_EMAIL);
-        	$to = new SendGrid\Email(null, $TO_EMAIL);
-        	$htmlContent = 'Try to be nice. Take a look at the anti spam laws. In most cases, you must have an unsubscribe. You also cannot be misleading.';
-        	// Create Sendgrid content
-        	$content = new SendGrid\Content("text/html",$htmlContent);
-        	// Create a mail object
-        	$mail = new SendGrid\Mail($from, $subject, $to, $content);
-
-        	$sg = new \SendGrid($API_KEY);
-        	$response = $sg->client->mail()->send()->post($mail);
-
-        	if ($response->statusCode() == 202) {
-        		// Successfully sent
-        		echo 'done';
-        	} else {
-        		echo 'false';
-        	}
+          $email = new \SendGrid\Mail\Mail();
+          $email->setFrom("info@ecetkmce.live", "INFO ECETKMCE");
+          $email->setSubject("Sending with SendGrid is Fun");
+          $email->addTo("thameemk612@yahoo.com", "Web Admin");
+          $email->addContent(
+              "text/plain", "and easy to do anywhere, even with PHP"
+          );
+          $email->addContent(
+              "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
+          );
+          $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+          try {
+              $response = $sendgrid->send($email);
+              print $response->statusCode() . "\n";
+              print_r($response->headers());
+              print $response->body() . "\n";
+          } catch (Exception $e) {
+              echo 'Caught exception: ',  $e->getMessage(), "\n";
+          }
     }
     public function send1(){
       $this->load->library('email');
