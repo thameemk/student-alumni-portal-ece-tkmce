@@ -40,16 +40,6 @@ class Signup extends CI_Controller {
                      redirect('signup');
                  }
                 else {
-                    $data = array(
-                      'first_name' => $this->input->post('firstname'),
-                      'last_name' => $this->input->post('lastname'),
-                      'user_company' => $this->input->post('company'),
-                      'user_email' => $this->input->post('user_email'),
-                      'phone' => $this->input->post('phone'),
-                      'year_pass' => $this->input->post('passyear'),
-                      'user_password' => password_hash($this->input->post('password'),PASSWORD_BCRYPT),
-                    );
-                    $lid = $this->report_model->userRegister($data);
                     //generate simple random code
                     $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
                     $code = substr(str_shuffle($set), 0, 12);
@@ -64,7 +54,7 @@ class Signup extends CI_Controller {
                             <p>Email: ".$this->input->post('user_email')."</p>
                             <p>Password: ".$this->input->post('password')."</p>
                             <p>Please click the link below to activate your account.</p>
-                            <h4><a href='".base_url()."signup/activate/".$id."/".$code."'>Activate My Account</a></h4>
+                            <h4><a href='".base_url()."signup/activate/".$code."'>Activate My Account</a></h4>
                           </body>
                           </html>
                           ";
@@ -77,12 +67,23 @@ class Signup extends CI_Controller {
                       try {
                           $response = $sendgrid->send($email);
                           $status = $response->statusCode();
+                          print $response->statusCode() . "\n";exit;
                         //  print_r($response->headers());
                          // print $response->body() . "\n";
                       } catch (Exception $e) {
                           echo 'Caught exception: ',  $e->getMessage(), "\n";
                       }
                       if($status=='202'){
+                        $data = array(
+                          'first_name' => $this->input->post('firstname'),
+                          'last_name' => $this->input->post('lastname'),
+                          'user_company' => $this->input->post('company'),
+                          'user_email' => $this->input->post('user_email'),
+                          'phone' => $this->input->post('phone'),
+                          'year_pass' => $this->input->post('passyear'),
+                          'user_password' => password_hash($this->input->post('password'),PASSWORD_BCRYPT),
+                        );
+                        $this->report_model->userRegister($data);
                         $this->session->set_flashdata('msg', 'Check your email for Verification link!');
                         redirect('signup');
                       }
