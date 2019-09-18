@@ -17,19 +17,19 @@ class Login extends CI_Controller {
         $this->load->model('report_model');
         $result = $this->report_model->login();
 
-        if(! $result){
-            if($result == 'fail'){
-              $this->session->set_flashdata('msg', 'Verify Your Email Address');
-              redirect('login');
-            }
-            else{
-            $this->session->set_flashdata('msg', 'Email or Password is incorrect');
-            redirect('login');
-          }
+        if($result=='true'){
+            $this->session->set_flashdata('msg', 'Login success');
+            redirect('myportal');
         }
         else {
-          $this->session->set_flashdata('msg', 'Login success');
-            redirect('myportal');
+          if($result == 'fail'){
+            $this->session->set_flashdata('msg', 'Verify Your Email Address');
+            redirect('login');
+          }
+          else{
+          $this->session->set_flashdata('msg', 'Email or Password is incorrect');
+          redirect('login');
+          }
 
         }
 
