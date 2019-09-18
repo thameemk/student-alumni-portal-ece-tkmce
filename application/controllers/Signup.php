@@ -113,8 +113,8 @@ class Signup extends CI_Controller {
         $data['active_status'] = true;
         $query = $this->report_model->userActivateAccount($data, $phone);
         if($query){
-          $this->session->set_flashdata('success', 'User activated successfully.Login to Continue');
-          $this->load->view('login');
+          $this->session->set_flashdata('success', 'User activated successfully');
+          redirect('login');          
         }
         else{
           $this->session->set_flashdata('msgreq', 'Something went wrong in activating account');
