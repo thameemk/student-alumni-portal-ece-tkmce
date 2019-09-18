@@ -64,6 +64,7 @@ class Signup extends CI_Controller {
                       $email->addTo("thameemk612@gmail.com", $this->input->post('firstname'));
                       $email->addContent($message);
                       $sendgrid = new \SendGrid('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');
+                      print mail.get();
                       try {
                           $response = $sendgrid->send($email);
                           // $status = $response->statusCode();
