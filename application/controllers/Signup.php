@@ -66,7 +66,7 @@ class Signup extends CI_Controller {
                       $sendgrid = new \SendGrid('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');
                       try {
                           $response = $sendgrid->send($email);
-                          $status = $response->statusCode();
+                          // $status = $response->statusCode();
                           print $response->statusCode() . "\n";exit;
                         //  print_r($response->headers());
                          // print $response->body() . "\n";
