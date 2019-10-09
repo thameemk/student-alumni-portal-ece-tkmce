@@ -31,13 +31,27 @@
         <div class="photo">
             <h1 class="title mt-3 ml-3 mr-3 mb-3"><?=$row['title']?></h1>
             <ul class="pt-1">
-              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Company / Organisation :</span> <?=$row['place']?> </li>
-              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Location : </span><?=$row['location']?> </li>
-              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Web Link :</span> <a href="<?=$row['reg_link']?>"><?=$row['reg_link']?></a> </li>
+              <?php if($row['place']!='') { ?>
+              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Company / Organisation : </span><?=$row['place']?> </li>
+              <?php } ?>
+              <?php if($row['location']!='') { ?>
+              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Location :</span> <?=$row['location']?> </li>
+              <?php } ?>
+              <?php if($row['reg_link']!='') { ?>
+              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Web Link : </span><a href="<?=$row['reg_link']?>"><?=$row['reg_link']?></a> </li>
+            <?php } ?>
+            <?php if($row['last_date']!='') { ?>
               <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Last Date :</span> <?=$row['last_date']?> </li>
-              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Email : </span><?=$row['email']?> </li>
-              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Contact Number : </span><?=$row['phone']?> </li>
+            <?php } ?>
+            <?php if($row['email']!='') { ?>
+              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Email :</span> <?=$row['email']?> </li>
+            <?php } ?>
+            <?php if($row['phone']!='') { ?>
+              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Contact Number :</span> <?=$row['phone']?> </li>
+            <?php } ?>
+            <?php if($row['details']!='') { ?>
               <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">More Info :</span> <?=$row['details']?> </li>
+            <?php } ?>
             </ul>
             <div class="photo__info">
                 <div class="photo__add-comment-container"></div>
