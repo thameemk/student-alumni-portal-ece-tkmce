@@ -3,6 +3,11 @@
   <center><?php echo $this->session->flashdata('msg'); ?></center>
 </div>
 <?php endif; ?>
+<?php if($this->session->flashdata('msgreq')): ?>
+<div class="alert alert-danger" role="alert">
+  <center><?php echo $this->session->flashdata('msgreq'); ?></center>
+</div>
+<?php endif; ?>
 <main id="edit-profile">
        <div class="edit-profile__container">
            <form action="process" method="post" class="edit-profile__form">
@@ -29,10 +34,6 @@
                <div class="form__row">
                    <label for="email" class="form__label">Company Email:</label>
                    <input id="email" type="email" name="email" class="form__input" />
-               </div>
-               <div class="form__row">
-                   <label for="phone" class="form__label">Phone Number:</label>
-                   <input id="phone" type="tel" name="phone" class="form__input" />
                </div>
                <div class="form__row">
                    <label for="bio" class="form__label">More Details:</label>

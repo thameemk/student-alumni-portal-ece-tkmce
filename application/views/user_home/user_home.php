@@ -3,6 +3,11 @@
   <center><?php echo $this->session->flashdata('msg'); ?></center>
 </div>
 <?php endif; ?>
+<?php if($this->session->flashdata('msgreq')): ?>
+<div class="alert alert-danger" role="alert">
+  <center><?php echo $this->session->flashdata('msgreq'); ?></center>
+</div>
+<?php endif; ?>
 
 <main id="feed">
       <?php foreach($feed as $row){ ?>
@@ -30,10 +35,7 @@
             <?php } ?>
             <?php if($row['email']!='') { ?>
               <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Email :</span> <?=$row['email']?> </li>
-            <?php } ?>
-            <?php if($row['phone']!='') { ?>
-              <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">Contact Number :</span> <?=$row['phone']?> </li>
-            <?php } ?>
+            <?php } ?>      
             <?php if($row['details']!='') { ?>
               <li class="ml-3 mt-3 "><span style="-webkit-text-stroke: medium;">More Info :</span> <?=$row['details']?> </li>
             <?php } ?>

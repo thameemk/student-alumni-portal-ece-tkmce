@@ -5,12 +5,21 @@ class User extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        $this->load->library('form_validation','encryption');
         $this->load->helper(array('form', 'url'));
         $this->load->library('session');
         $this->load->model('report_model');
         if(!$this->session->userdata('user_email')) {
             redirect('login');
         }
+    }
+    public function home(){
+      $data['title'] = 'My portal';
+      $data['feed']=$this->report_model->userHome($showStatus="1");
+      // $data['feed']=$this->report_model->userHome();
+      $this->load->view('user_home/user_header',$data);
+      $this->load->view('user_home/user_home',$data);
+      $this->load->view('user_home/user_footer');
     }
     public function submit()
     {
@@ -21,6 +30,8 @@ class User extends CI_Controller {
     }
     public function process()
     {
+      require("./sendgrid/vendor/autoload.php");
+      $data = "";
       $data=$this->security->xss_clean($data);
       $user_email=$_SESSION['user_email'];
       $this->db->where('user_email',$user_email);
@@ -32,27 +43,79 @@ class User extends CI_Controller {
           'user_company' => $row->user_company,
           'author_first_name' => $row->first_name,
           'author_last_name' => $row->last_name,
+          'user_phone' =>$row->phone,
           'validated' => true
       );
       $this->session->set_userdata($temp);
-      echo '<pre>'; print_r($this->session->all_userdata());
-      $data = array(
-        'title' => $this->input->post('title'),
-        'place' => $this->input->post('company'),
-        'last_date' => $this->input->post('last-date'),
-        'reg_link' => $this->input->post('website'),
-        'location' => $this->input->post('location'),
-        'email' => $this->input->post('email'),
-        'phone' => $this->input->post('phone'),
-        'details' => $this->input->post('moreInfo'),
-        'user_email' => $_SESSION['user_email'],
-        'company' => $_SESSION["user_company"],
-        'author_first_name' => $_SESSION['author_first_name'],
-        'author_last_name' => $_SESSION['author_last_name'],
-      );
-      $this->report_model->form($data);
-      $this->session->set_flashdata('msg', 'After verification it will show to website !');
-      redirect('User/submit');
+      $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      $code = substr(str_shuffle($set), 0, 12);
+      // echo '<pre>'; print_r($this->session->all_userdata());
+      $message = 	"
+            <html>
+            <head>
+              <title>Verify Post</title>
+            </head>
+            <body>
+              <h2>Verify Post</h2>
+              <p>Post details:</p>
+              <p>Title: ".$this->input->post('title')."</p>
+              <p>Company: ".$this->input->post('company')."</p>
+              <p>Last Date: ".$this->input->post('last-date')."</p>
+              <p>Registration Link: ".$this->input->post('website')."</p>
+              <p>Location: ".$this->input->post('location')."</p>
+              <p>Email: ".$this->input->post('email')."</p>
+              <p>More Details: ".$this->input->post('moreInfo')."</p>
+              <p>Please click the link below to verify the information.</p>
+              <h4><a href='".base_url()."Admin/verifyPost/".$code."/".$_SESSION['user_phone']."'>Verify</a></h4>
+            </body>
+            </html>
+            ";
+        $email = new \SendGrid\Mail\Mail();
+        $email->setFrom("no-reply@ecetkmce.live", "Information Center ECETKMCE");
+        $email->setSubject("Verify Post");
+        $email->addTo("thameemk612@ieee.org");
+        $email->addContent(
+          "text/html", $message
+        );
+        $sendgrid = new \SendGrid('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');
+
+        try {
+            $response = $sendgrid->send($email);
+            $status = $response->statusCode();
+            // print $response->statusCode() . "\n";
+           // print_r($response->headers());
+           // print $response->body() . "\n";
+        } catch (Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
+        if($status=='202'){
+          $data = array(
+            'title' => $this->input->post('title'),
+            'place' => $this->input->post('company'),
+            'last_date' => $this->input->post('last-date'),
+            'reg_link' => $this->input->post('website'),
+            'location' => $this->input->post('location'),
+            'email' => $this->input->post('email'),
+            'user_phone' => $_SESSION['user_phone'],
+            'details' => $this->input->post('moreInfo'),
+            'user_email' => $_SESSION['user_email'],
+            'company' => $_SESSION["user_company"],
+            'author_first_name' => $_SESSION['author_first_name'],
+            'author_last_name' => $_SESSION['author_last_name'],
+            'code' => $code,
+          );
+          $this->report_model->form($data);
+          $this->session->set_flashdata('msg', 'After verification it will show to website !');
+          redirect('User/submit');
+          // print $response->statusCode() . "\n";
+          // echo "flag1";exit;
+        }
+        else{
+          $this->session->set_flashdata('msgreq', 'Some error has been occured. Contact Web admin!');
+          redirect('User/submit');
+          // print $response->statusCode() . "\n";
+          // echo "flag2";exit;
+        }
     }
 
     public function profile()
