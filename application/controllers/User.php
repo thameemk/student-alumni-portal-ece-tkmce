@@ -39,7 +39,7 @@ class User extends CI_Controller {
       $data = array(
         'title' => $this->input->post('title'),
         'place' => $this->input->post('company'),
-        'last-date' => $this->input->post('last-date'),        
+        'last_date' => $this->input->post('last-date'),
         'reg_link' => $this->input->post('website'),
         'location' => $this->input->post('location'),
         'email' => $this->input->post('email'),
@@ -51,7 +51,7 @@ class User extends CI_Controller {
         'author_last_name' => $_SESSION['author_last_name'],
       );
       $this->report_model->form($data);
-      $this->session->set_flashdata('msg', 'Information submitted successfully !');
+      $this->session->set_flashdata('msg', 'After verification it will show to website !');
       redirect('User/submit');
     }
 
