@@ -23,6 +23,10 @@
                    <input id="location" type="text" name="location" class="form__input" />
                </div>
                <div class="form__row">
+                   <label for="last-date" class="form__label">Last date:</label>
+                   <input id="last-date" type="date" name="last-date" class="form__input" />
+               </div>
+               <div class="form__row">
                    <label for="email" class="form__label">Company Email:</label>
                    <input id="email" type="email" name="email" class="form__input" />
                </div>
