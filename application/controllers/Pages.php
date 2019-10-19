@@ -29,7 +29,7 @@ class Pages extends CI_Controller {
       $temp = ucfirst($page);
       $data['page_title'] = $temp;
       $data['news']=$this->report_model->latestNews();
-      $data['about'] =  $this->report_model->info($id='1000');
+      $data['about'] =  $this->report_model->info($id='1002');
       $data['events']=$this->report_model->updates();
       $this->load->view('templates/header',$data);
       $this->load->view('static/'.$page,$data);

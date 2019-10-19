@@ -21,7 +21,7 @@
 				<div class="container-fluid">
 					<div class="row align-items-center">						
 						<div class="col-lg-12">
-							<h3 class="mb-2 text-center">The Department of Electronics & Communication - TKMCE</h3>
+							<h3 class="mb-2 text-center">Student Alumni Portal - Department of ECE, TKMCE</h3>
                     <?php foreach($about as $row){ ?>
 							       <p class="ml-5 mr-5"  align="justify"><?php echo $row['details']; ?></p>
                    <?php } ?>
