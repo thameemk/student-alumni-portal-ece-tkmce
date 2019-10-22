@@ -8,6 +8,7 @@
   <center><?php echo $this->session->flashdata('msgreq'); ?></center>
 </div>
 <?php endif; ?>
+<h1 class="mb-5 font-weight-bold" align="center">You can add new opportunities here</h1>
 <main id="edit-profile">
        <div class="edit-profile__container">
            <form action="process" method="post" class="edit-profile__form">
