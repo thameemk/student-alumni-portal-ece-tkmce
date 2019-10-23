@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\application",
+    "\\application\\views",
+    "\\application\\views\\user_home"
   ],
+  "SelectedNode": "\\application\\views\\user_home\\submit.php",
   "PreviewInSolutionExplorer": false
 }

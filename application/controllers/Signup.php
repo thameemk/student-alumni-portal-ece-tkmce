@@ -53,8 +53,8 @@ class Signup extends CI_Controller {
                             <p>Your Account:</p>
                             <p>Email: ".$this->input->post('user_email')."</p>
                             <p>Password: ".$this->input->post('password')."</p>
-                            <p>Please click the link below to activate your account.</p>
-                            <h4><a href='".base_url()."signup/activateAccount/".$code."/".$this->input->post('phone')."'>Activate My Account</a></h4>
+                            <p>Please click the link below to activate your account.</p><br>
+                            <p> ".base_url()."signup/activateAccount/".$code."/".$this->input->post('phone')."</p>                         
                           </body>
                           </html>
                           ";
