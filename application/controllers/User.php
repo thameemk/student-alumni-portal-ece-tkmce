@@ -16,11 +16,11 @@ class User extends CI_Controller {
     public function home(){
       $data['title'] = 'My portal';
       $data['feed']=$this->report_model->userHome($showStatus="1");
-      $this->load->view('user_home/server_migration');
+      // $this->load->view('user_home/server_migration');
       // $data['feed']=$this->report_model->userHome();
-      // $this->load->view('user_home/user_header',$data);
-      // $this->load->view('user_home/user_home',$data);
-      // $this->load->view('user_home/user_footer');
+      $this->load->view('user_home/user_header',$data);
+      $this->load->view('user_home/user_home',$data);
+      $this->load->view('user_home/user_footer');
     }
     public function submit()
     {
