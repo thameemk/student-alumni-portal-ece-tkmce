@@ -20,9 +20,6 @@
 
 <body>
 
-
-
-
   <header id="main-header" class="header-one">
 
     <nav id="menu-1" class="mega-menu" data-color="">
@@ -71,7 +68,7 @@
 
                       <ul class="drop-down-multilevel">
                         <?php if ($this->session->userdata('user_email') == TRUE) {?>
-                          <li><a href="<?=base_url()?>user/editprofile">Edit Profile</a></li>                        
+                          <li><a href="<?=base_url()?>user/editprofile">Edit Profile</a></li>
                         <li><a href="<?=base_url()?>login/logout">Logout</a></li>
                         <?php } else { ?>
                         <li><a href="<?=base_url()?>login">Login</a></li>
