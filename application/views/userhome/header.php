@@ -5,30 +5,23 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147260508-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  <title><?php echo $title; ?> - ECE Live TKMCE</title>
 
-    gtag('config', 'UA-147260508-1');
-  </script>
+  <link rel="shortcut icon" href="<?=base_url()?>assets/user-home/images/logo.png">
 
-  <title><?php echo $title; ?>  - ECE Live</title>
+  <link rel="stylesheet" href="<?=base_url()?>assets/user-home/css/bootstrap.min.css">
 
-  <link rel="shortcut icon" href="<?php echo base_url()?>assets/user-home/images/logo.png">
+  <link rel="stylesheet" href="<?=base_url()?>assets/user-home/css/typography.css">
 
-  <link rel="stylesheet" href="<?php echo base_url()?>assets/user-home/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?=base_url()?>assets/user-home/css/style.css">
 
-  <link rel="stylesheet" href="<?php echo base_url()?>assets/user-home/css/typography.css">
-
-  <link rel="stylesheet" href="<?php echo base_url()?>assets/user-home/css/style.css">
-
-  <link rel="stylesheet" href="<?php echo base_url()?>assets/user-home/css/responsive.css">
+  <link rel="stylesheet" href="<?=base_url()?>assets/user-home/css/responsive.css">
 </head>
 
 <body>
+
+
+
 
   <header id="main-header" class="header-one">
 
@@ -41,7 +34,7 @@
 
               <ul class="menu-logo">
                 <li>
-                  <a href="<?php echo base_url()?>"><img src="<?php echo base_url()?>assets/user-home/images/logo.png" alt="logo" class="img-fluid"></a>
+                  <a href="#"><img src="<?=base_url()?>assets/user-home/images/logo.png" alt="logo" class="img-fluid"></a>
                 </li>
               </ul>
 
@@ -54,29 +47,42 @@
                     </label>
                   </form>
                 </li>
-                <li class="drop-down-multilevel"><a href="javascript:void(0)">My Profile</a>
-                  <li><a href="full-4-portfolio.html">View Profile</a></li>
-                  <?php if ($this->session->userdata('user_email') == TRUE) {?>
-                  <li><a href="<?=base_url()?>Login/logout">Logout</a></li>
-                  <?php } else { ?>
-                  <li><a href="<?=base_url()?>login">Login</a></li>
-                  <li><a href="<?=base_url()?>signup">Signup</a></li>
-                  <?php }?>
+                <li class="menu-contact iq-fw-5">
+                  <a href="<?=base_url()?>user/profile" >My Profile</a>
                 </li>
               </ul>
 
               <ul class="menu-links">
 
                 <li>
-                  <a href="<?php echo base_url()?>">Home</a>
-                </li>
-                <li>
+                  <a href="javascript:void(0)">Home</a>
+
                   <ul class="drop-down-multilevel">
-                    <li><a href="portfolio.html">Tools</a></li>
-                    <li><a href="porfolio-detail.html">Post New Opportunities</a></li>
+                    <li><a href="<?=base_url()?>">ECE Live</a></li>
+                    <li><a href="<?=base_url()?>myportal">ECE Live Portal</a></li>
                   </ul>
                 </li>
-              </ul>
+                <li>
+                  <a href="javascript:void(0)">Tools</a>
+
+                  <ul class="drop-down-multilevel ">
+                    <li>
+                      <a href="javascript:void(0)">Profile Settings<i class="fas fa-angle-right "></i></a>
+
+                      <ul class="drop-down-multilevel">
+                        <?php if ($this->session->userdata('user_email') == TRUE) {?>
+                          <li><a href="<?=base_url()?>user/editprofile">Edit Profile</a></li>                        
+                        <li><a href="<?=base_url()?>login/logout">Logout</a></li>
+                        <?php } else { ?>
+                        <li><a href="<?=base_url()?>login">Login</a></li>
+                        <li><a href="<?=base_url()?>signup">Register</a></li>
+                        <?php }?>
+                      </ul>
+                    </li>
+                    <li><a href="<?=base_url()?>user/submit">New Post<span class="ml-3 badge badge-danger">New!!</span></a></li>
+                    <li><a href="<?=base_url()?>support">Contact us</a></li>
+                  </ul>
+                </li>
             </div>
           </div>
         </div>
