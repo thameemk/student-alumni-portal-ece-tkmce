@@ -8,8 +8,10 @@ class Login extends CI_Controller {
         if($this->session->userdata('user_email')) {
             redirect('User/home');
         }
-
-        $this->load->view('login');
+        $data['title'] = 'Login';
+        $this->load->view('userhome/header-login',$data);
+        $this->load->view('userhome/login');
+        $this->load->view('userhome/footer-login');
     }
 
     public function process() {
@@ -23,11 +25,11 @@ class Login extends CI_Controller {
         }
         else {
           if($result == 'fail'){
-            $this->session->set_flashdata('msg', 'Verify Your Email Address');
+            $this->session->set_flashdata('msg', 'Verify your email address');
             redirect('login');
           }
           else{
-          $this->session->set_flashdata('msg', 'Email or Password is incorrect');
+          $this->session->set_flashdata('msg', 'Email or password is incorrect');
           redirect('login');
           }
 
@@ -38,6 +40,8 @@ class Login extends CI_Controller {
     public function logout() {
         $this->session->sess_destroy();
         $this->session->set_flashdata('msg', 'Logged out');
-        $this->load->view('login');
+        $this->load->view('userhome/header-login');
+        $this->load->view('userhome/login');
+        $this->load->view('userhome/footer-login');
     }
 }

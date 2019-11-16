@@ -1,12 +1,4 @@
-<footer class="footer-one footer-bg  position-relative">
-
-  <div style="padding:0px"class="contactinfo">
-    <div class="container">
-          <div class="footer-copyright mb-4 iq-fw-5 mt-3">©2019 ECELive</div>      
-    </div>
-  </div>
-
-  <div id="back-to-top">
+<div id="back-to-top">
     <a class="top" id="top" href="#top"><i class="ion-ios-arrow-thin-up"></i></a>
   </div>
 

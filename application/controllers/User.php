@@ -149,9 +149,13 @@ class User extends CI_Controller {
 
         $fullname =  $_SESSION['author_first_name']." ". $_SESSION['author_last_name'];  ;
         $data['title'] = $fullname;
-        $this->load->view('user_home/user_header',$data);
-        $this->load->view('user_home/profile',$data);
-        $this->load->view('user_home/user_footer');
+        // $this->load->view('user_home/user_header',$data);
+        // $this->load->view('user_home/profile',$data);
+        // $this->load->view('user_home/user_footer');
+        $this->load->view('userhome/header',$data);
+        $this->load->view('userhome/profile',$data);
+        $this->load->view('userhome/footer');
+
     }
     public function editprofile()
     {

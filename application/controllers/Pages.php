@@ -11,12 +11,13 @@ class Pages extends CI_Controller {
 
 	public function index()
 	{
-    $data['page_title'] = 'Home';
-    $data['events']=$this->report_model->updates();
-    $data['news']=$this->report_model->latestNews();
-		$this->load->view('templates/header',$data);
-		$this->load->view('static/home',$data);
-		$this->load->view('templates/footer');
+    // $data['page_title'] = 'Home';
+    // $data['events']=$this->report_model->updates();
+    // $data['news']=$this->report_model->latestNews();
+		// $this->load->view('templates/header',$data);
+		// $this->load->view('static/home',$data);
+		// $this->load->view('templates/footer');
+    redirect('myportal');
 	}
   public function success(){
     $this->load->view('static/success');

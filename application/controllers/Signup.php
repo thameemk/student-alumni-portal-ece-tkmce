@@ -12,7 +12,10 @@ class Signup extends CI_Controller {
 
     public function index()
     {
-        $this->load->view('signup');
+        $data['title'] = 'Signup';
+        $this->load->view('userhome/header-login',$data);
+        $this->load->view('userhome/signup');
+        $this->load->view('userhome/footer-login');
     }
     public function process(){
       require("./sendgrid/vendor/autoload.php");
@@ -35,6 +38,7 @@ class Signup extends CI_Controller {
             $this->form_validation->set_rules('lastname','Last Name','required');
             $this->form_validation->set_rules('phone','Phone Number','required');
             $this->form_validation->set_rules('passyear','Pass year','required');
+            $this->form_validation->set_rules('agree','Agree','required');            
                 if($this->form_validation->run() == FALSE){
                      $this->session->set_flashdata('msgreq', 'Fill all fields! ');
                      redirect('signup');
@@ -54,7 +58,7 @@ class Signup extends CI_Controller {
                             <p>Email: ".$this->input->post('user_email')."</p>
                             <p>Password: ".$this->input->post('password')."</p>
                             <p>Please click the link below to activate your account.</p><br>
-                            <p> https:".base_url()."signup/activateAccount/".$code."/".$this->input->post('phone')."</p>                         
+                            <p> https:".base_url()."signup/activateAccount/".$code."/".$this->input->post('phone')."</p>
                           </body>
                           </html>
                           ";
@@ -114,10 +118,10 @@ class Signup extends CI_Controller {
         $query = $this->report_model->userActivateAccount($data, $phone);
         if($query){
           $this->session->set_flashdata('success', 'User activated successfully');
-          redirect('login');          
+          redirect('login');
         }
         else{
-          $this->session->set_flashdata('msgreq', 'Something went wrong in activating account');
+          $this->session->set_flashdata('msgreq', 'Something went wrong');
           redirect('signup');
         }
     }
