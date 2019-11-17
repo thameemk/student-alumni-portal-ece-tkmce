@@ -6,6 +6,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title><?php echo $title; ?> - ECE Live TKMCE</title>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147260508-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-147260508-1');
+  </script>
+  <meta name="description" content="Student - Alumni portal of department of electronics and communication engineering, TKM College of Engineering.">
+  <meta name="keywords" content=",ECE,Electronics and Communication Engineering,TKMCE,TKM College of engineering,">
 
   <link rel="shortcut icon" href="<?=base_url()?>assets/user-home/images/logo.png">
 
@@ -73,7 +84,7 @@
                     </li>
                     <li><a href="<?=base_url()?>user/submit">New Post<span class="ml-3 badge badge-danger">New!!</span></a></li>
                     <li><a href="<?=base_url()?>support">Contact us</a></li>
-                    <li><a href="<?=base_url()?>about">About us</a></li>                    
+                    <li><a href="<?=base_url()?>about">About us</a></li>
                   </ul>
                 </li>
             </div>

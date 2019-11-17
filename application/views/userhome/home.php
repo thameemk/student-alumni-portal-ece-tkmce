@@ -42,7 +42,7 @@
 
         <?php foreach(array_reverse($feed) as $row){ ?>
 
-        <div class="col-lg-4 col-md-6 col-sm-12" id="<?=$row['title']?>">
+        <div class="col-lg-4 col-md-6 col-sm-12" id="<?=$row['id_link']?>">
           <div class="main-blog">
             <div class="blog-detail">
               <h6 class="mt-1 iq-fw-8"><?=$row['title']?></h6>
