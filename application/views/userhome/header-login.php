@@ -33,7 +33,7 @@
                                 <a class="nav-link" href="<?=base_url()?>">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Privacy Terms</a>
+                                <a class="nav-link" href="<?=base_url()?>privacy-terms">Privacy Terms</a>
                             </li>
                         </ul>
                     </div>

@@ -37,12 +37,12 @@
       <input name="passconf" type="password" class="form-control" placeholder="Confirm Password">
     </div>
     <div class="form-group form-check mb-4">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-      <label class="form-check-label" for="exampleCheck1">By Clicking register, you agree on our term and condition</label>
+      <input name="agree" type="checkbox" class="form-check-input" id="exampleCheck1" required>
+      <label class="form-check-label" for="exampleCheck1">By Clicking register, you agree on our <a href="<?=base_url()?>privacy-terms">terms and condition</a></label>
     </div>
-    <a href="<?=base_url()?>login" class="form-check-label">Already have an account,  Click here to login</a>
     <button type="submit" class="slide-button button mr-3 first">Signup</button>
   </form>
+  <a href="<?=base_url()?>login" class="form-check-label">Already have an account,  Click here to login</a>
 </div>
 <ul class="social-list">
   <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>

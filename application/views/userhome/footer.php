@@ -2,7 +2,7 @@
 
   <div style="padding:0px"class="contactinfo">
     <div class="container">
-          <div class="footer-copyright mb-4 iq-fw-5 mt-3">©2019 ECELive</div>      
+          <div class="footer-copyright mb-4 iq-fw-5 mt-3">©2019 ECE Live MADE WITH LOVE IN INDIA</div>      
     </div>
   </div>
 

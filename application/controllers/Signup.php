@@ -38,12 +38,13 @@ class Signup extends CI_Controller {
             $this->form_validation->set_rules('lastname','Last Name','required');
             $this->form_validation->set_rules('phone','Phone Number','required');
             $this->form_validation->set_rules('passyear','Pass year','required');
-            $this->form_validation->set_rules('agree','Agree','required');            
+            $this->form_validation->set_rules('agree','Agree','required');
                 if($this->form_validation->run() == FALSE){
                      $this->session->set_flashdata('msgreq', 'Fill all fields! ');
                      redirect('signup');
                  }
                 else {
+                    // echo "flag1";exit;
                     //generate simple random code
                     $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
                     $code = substr(str_shuffle($set), 0, 12);

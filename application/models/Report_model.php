@@ -66,7 +66,7 @@ class Report_model extends CI_Model {
            return false;
       }
       else {
-        return fail;
+        return 'fail';
       }
    }
    public function form($data){

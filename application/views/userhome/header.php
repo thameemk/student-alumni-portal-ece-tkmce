@@ -52,12 +52,7 @@
               <ul class="menu-links">
 
                 <li>
-                  <a href="javascript:void(0)">Home</a>
-
-                  <ul class="drop-down-multilevel">
-                    <li><a href="<?=base_url()?>">ECE Live</a></li>
-                    <li><a href="<?=base_url()?>myportal">ECE Live Portal</a></li>
-                  </ul>
+                  <a href="<?=base_url()?>">Home</a>
                 </li>
                 <li>
                   <a href="javascript:void(0)">Tools</a>
@@ -78,6 +73,7 @@
                     </li>
                     <li><a href="<?=base_url()?>user/submit">New Post<span class="ml-3 badge badge-danger">New!!</span></a></li>
                     <li><a href="<?=base_url()?>support">Contact us</a></li>
+                    <li><a href="<?=base_url()?>about">About us</a></li>                    
                   </ul>
                 </li>
             </div>

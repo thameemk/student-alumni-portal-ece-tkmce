@@ -21,18 +21,6 @@
     <img src="<?php echo base_url()?>assets/user-home/images/02.png" class="img-fluid breadcrumb-two" alt="image">
   </div>
 </section>
-<div>
-  <?php if($this->session->flashdata('msg')): ?>
-  <div class="alert alert-success" role="alert">
-    <center><?php echo $this->session->flashdata('msg'); ?></center>
-  </div>
-  <?php endif; ?>
-  <?php if($this->session->flashdata('msgreq')): ?>
-  <div class="alert alert-danger" role="alert">
-    <center><?php echo $this->session->flashdata('msgreq'); ?></center>
-  </div>
-  <?php endif; ?>
-</div>
 
 <div class="main-content">
 

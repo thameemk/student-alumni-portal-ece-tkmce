@@ -13,10 +13,10 @@
     <?php endif; ?>
     <form action="<?=base_url("Login/process")?>" method="post">
         <div class="form-group">
-            <input type="email" class="form-control" placeholder="Enter Email">
+            <input name="user_email" type="email" class="form-control" placeholder="Enter Email">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password">
+            <input name="password" type="password" class="form-control" placeholder="Password">
         </div>
         <div class="form-group form-check mb-4 pb-4">
             <a href="<?=base_url()?>signup" class="float-left iq-fw-6">Register here!!</a>

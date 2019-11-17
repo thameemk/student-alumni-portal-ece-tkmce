@@ -14,20 +14,20 @@ class User extends CI_Controller {
         }
     }
     public function home(){
-      $data['title'] = 'My portal';
+      $data['title'] = 'Home';
       $data['feed']=$this->report_model->userHome($showStatus="1");
       // $this->load->view('user_home/server_migration');
       // $data['feed']=$this->report_model->userHome();
-      $this->load->view('user_home/user_header',$data);
-      $this->load->view('user_home/user_home',$data);
-      $this->load->view('user_home/user_footer');
+      $this->load->view('userhome/header',$data);
+      $this->load->view('userhome/home',$data);
+      $this->load->view('userhome/footer');
     }
     public function submit()
     {
-        $data['title'] = 'New post';
-        $this->load->view('user_home/user_header',$data);
-        $this->load->view('user_home/submit');
-        $this->load->view('user_home/user_footer');
+        $data['title'] = 'Submit a new opportunity';
+        $this->load->view('userhome/header',$data);
+        $this->load->view('userhome/new_post');
+        $this->load->view('userhome/footer');
     }
     public function process()
     {
@@ -123,6 +123,12 @@ class User extends CI_Controller {
     {
         $user_email=$_SESSION['user_email'];
         $data['user']=$this->report_model->userUploads($user_email);
+          // foreach ($data['user'] as $row ) {
+          //   $post_date =  substr($row['timeStamp'],0,10);
+          //   echo $post_date;
+          //   echo "<br>";
+          // }
+        // exit;
         $this->db->where('user_email',$user_email);
         $query=$this->db->get('login_users');
         $row = $query->row();
@@ -160,8 +166,8 @@ class User extends CI_Controller {
     public function editprofile()
     {
         $data['title'] = 'Edit profile';
-        $this->load->view('user_home/user_header',$data);
-        $this->load->view('user_home/edit_profile');
-        $this->load->view('user_home/user_footer');
+        $this->load->view('userhome/header',$data);
+        $this->load->view('userhome/editprofile');
+        $this->load->view('userhome/footer');
     }
 }

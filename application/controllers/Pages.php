@@ -11,31 +11,42 @@ class Pages extends CI_Controller {
 
 	public function index()
 	{
-    // $data['page_title'] = 'Home';
-    // $data['events']=$this->report_model->updates();
-    // $data['news']=$this->report_model->latestNews();
-		// $this->load->view('templates/header',$data);
-		// $this->load->view('static/home',$data);
-		// $this->load->view('templates/footer');
-    redirect('myportal');
+    $data['title'] = 'Home';
+    $data['feed']=$this->report_model->userHome($showStatus="1");
+
+		$this->load->view('userhome/header',$data);
+		$this->load->view('static_new/home',$data);
+		$this->load->view('userhome/footer');
+    // redirect('myportal');
 	}
   public function success(){
     $this->load->view('static/success');
   }
 
-  function view($page){
+  function view1($page){
       if ( ! file_exists(APPPATH.'views/static/'.$page.'.php')){
           show_404();
       }
       $temp = ucfirst($page);
       $data['page_title'] = $temp;
       $data['news']=$this->report_model->latestNews();
-      $data['about'] =  $this->report_model->info($id='1002');
+      // $data['about'] =  $this->report_model->info($id='1002');
       $data['events']=$this->report_model->updates();
       $this->load->view('templates/header',$data);
       $this->load->view('static/'.$page,$data);
       $this->load->view('templates/footer');
   }
+  function view($page){
+      if ( ! file_exists(APPPATH.'views/static_new/'.$page.'.php')){
+          show_404();
+      }
+      $temp = ucfirst($page);
+      $data['title'] = $temp;
+      $this->load->view('userhome/header',$data);
+      $this->load->view('static_new/'.$page,$data);
+      $this->load->view('userhome/footer');
+  }
+
 
   function updates($title=""){
       if($title==""){
