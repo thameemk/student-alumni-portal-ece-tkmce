@@ -14,9 +14,6 @@ $route['success'] = 'pages/success';
 $route['login'] = 'Login/index';
 $route['signup'] = 'Signup/index';
 
-$route['myportal'] ="pages/portal";
-
-
 $route['404_override'] = '';
 $route['(:any)'] = 'pages/view/$1';
 $route['translate_uri_dashes'] = FALSE;
