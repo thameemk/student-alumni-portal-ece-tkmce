@@ -23,16 +23,16 @@ class Admin extends CI_Controller {
           $query = $this->report_model->updatePostStatus($data,$phone);
           if($query){
             $this->session->set_flashdata('msg', 'Verified successfully');
-            redirect('User/home');
+            redirect('user/home');
           }
           else{
             $this->session->set_flashdata('msgreq', 'Something went wrong');
-            redirect('User/home');
+            redirect('user/home');
           }
       }
       else{
         $this->session->set_flashdata('msgreq', 'Cannot verify. Code didnt match');
-        redirect('User/home');
+        redirect('user/home');
       }
   }
 }
