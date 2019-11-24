@@ -1,2 +1,2 @@
-# Student-alumni-portal-ECETKMCE-v2
-Department Of Electronics And Communication TKMCE - Student &amp; Alumni Portal - v2
+# Student Alumni Portal
+### The project is for better collabration of Student and Alumnis of Department Of Electronics And Communication TKMCE
