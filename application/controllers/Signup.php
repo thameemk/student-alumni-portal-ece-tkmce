@@ -23,7 +23,7 @@ class Signup extends CI_Controller {
       $data = $this->input->post();
       $data = $this->security->xss_clean($data);
       $this->form_validation->set_rules('user_email','User Email','required|is_unique[login_users.user_email]');
-      $this->form_validation->set_rules('phone','User Email','required|is_unique[login_users.phone]');
+      $this->form_validation->set_rules('phone','User Phone','required|is_unique[login_users.phone]');
       if($this->form_validation->run() == FALSE){
         $this->session->set_flashdata('msgreq', 'You have already registred');
         redirect('signup');
