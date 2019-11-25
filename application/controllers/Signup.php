@@ -13,16 +13,17 @@ class Signup extends CI_Controller {
     public function index()
     {
         $data['title'] = 'Signup';
-        // $this->load->view('userhome/header-login',$data);
-        // $this->load->view('userhome/signup');
-        // $this->load->view('userhome/footer-login');
-          $this->load->view('user_home/server_migration');
+        $this->load->view('userhome/header-login',$data);
+        $this->load->view('userhome/signup');
+        $this->load->view('userhome/footer-login');
+          // $this->load->view('user_home/server_migration');
     }
     public function process(){
       require("./sendgrid/vendor/autoload.php");
       $data = $this->input->post();
       $data = $this->security->xss_clean($data);
       $this->form_validation->set_rules('user_email','User Email','required|is_unique[login_users.user_email]');
+      $this->form_validation->set_rules('phone','User Email','required|is_unique[login_users.phone]');
       if($this->form_validation->run() == FALSE){
         $this->session->set_flashdata('msgreq', 'You have already registred');
         redirect('signup');
@@ -37,7 +38,6 @@ class Signup extends CI_Controller {
           else {
             $this->form_validation->set_rules('firstname','First Name','required');
             $this->form_validation->set_rules('lastname','Last Name','required');
-            $this->form_validation->set_rules('phone','Phone Number','required');
             $this->form_validation->set_rules('passyear','Pass year','required');
             $this->form_validation->set_rules('agree','Agree','required');
                 if($this->form_validation->run() == FALSE){
@@ -45,8 +45,8 @@ class Signup extends CI_Controller {
                      redirect('signup');
                  }
                 else {
-                    $temp = $this->input->post('phone');
-                    $phone = preg_replace('/\D+/', '', $temp);
+                  $temp = $this->input->post('phone');
+                  $phone = preg_replace('/\D+/', '', $temp);
                     // echo "flag1";exit;
                     //generate simple random code
                     $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
