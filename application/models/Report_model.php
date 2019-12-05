@@ -102,12 +102,12 @@ class Report_model extends CI_Model {
      $query = $this->db->get('latestNews');
      return $query->result_array();
    }
-   public function postVerify($phone){
-      $query = $this->db->get_where('feedHome',array('user_phone'=>$phone));
+   public function postVerify($code){
+      $query = $this->db->get_where('feedHome',array('code'=>$code));
       return $query->row_array();
    }
-   public function updatePostStatus($data,$phone){
-     $this->db->where('feedHome.user_phone', $phone);
+   public function updatePostStatus($data,$code){
+     $this->db->where('feedHome.code', $code);
      return $this->db->update('feedHome', $data);
    }
 

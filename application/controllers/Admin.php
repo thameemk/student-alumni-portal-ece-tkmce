@@ -15,12 +15,12 @@ class Admin extends CI_Controller {
       $phone = $this->uri->segment(4);
       // echo $phone;
       //fetch user details
-      $user = $this->report_model->postVerify($phone);
+      $user = $this->report_model->postVerify($code);
       //if code matches
-      if($user['code'] == $code){
+      if($user['user_phone'] == $phone){
           //update user active status
           $data['showStatus'] = true;
-          $query = $this->report_model->updatePostStatus($data,$phone);
+          $query = $this->report_model->updatePostStatus($data,$code);
           if($query){
             $this->session->set_flashdata('msg', 'Verified successfully');
             redirect('user/home');
