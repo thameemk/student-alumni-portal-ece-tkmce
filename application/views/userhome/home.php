@@ -54,6 +54,8 @@
               <?php if($row['details']!='') { ?>
                 <p align="justify" class="mb-0"><b> More Info :</b> <?=$row['details']?> <?php } ?></p>
                 <a target="_blank" class="reply-btn text-green iq-font-18" href="<?=$row['reg_link']?>">Apply <i class="fas fa-long-arrow-alt-right"></i></a>
+                <br>
+                <a href="whatsapp://send?text=https:<?=base_url()?>#<?=$row['id_link']?>" data-action="share/whatsapp/share">Share via Whatsapp</a>
 
               <div class="blog-info">
                 <img src="<?php echo base_url()?>assets/userhome/img/<?=$row['author_img']?>" class="img-fluid rounded-circle mr-3 user-img" alt="<?=$row['author_img']?>"><span class="iq-fw-8 font-c iq-font-18"><?=$row['author_first_name']?>&nbsp;<?=$row['author_last_name']?></span>

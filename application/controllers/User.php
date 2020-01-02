@@ -34,6 +34,8 @@ class User extends CI_Controller {
       require("./sendgrid/vendor/autoload.php");
       $data = "";
       $data=$this->security->xss_clean($data);
+      $temp = $this->input->post('company')." at ".$this->input->post('title');
+      $id_link = preg_replace('/\s+/', '-', $temp);
       $user_email=$_SESSION['user_email'];
       $this->db->where('user_email',$user_email);
       $query=$this->db->get('login_users');
@@ -99,6 +101,7 @@ class User extends CI_Controller {
             'email' => $this->input->post('email'),
             'user_phone' => $_SESSION['user_phone'],
             'details' => $this->input->post('moreInfo'),
+            'id_link' => $id_link,
             'user_email' => $_SESSION['user_email'],
             'company' => $_SESSION["user_company"],
             'author_first_name' => $_SESSION['author_first_name'],
