@@ -1,3 +1,29 @@
+<style>
+.button {
+background-color: #4CAF50; /* Green */
+border: none;
+color: white;
+padding: 16px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+-webkit-transition-duration: 0.4s; /* Safari */
+transition-duration: 0.4s;
+cursor: pointer;
+}
+
+.button5 {
+background-color: white;
+color: black;
+}
+
+.button5:hover {
+background-color: #555555;
+color: white;
+}
+</style>
 <section class="iq-breadcrumb">
   <div class="iq-breadcrumb-info">
     <div class="container">
@@ -55,8 +81,8 @@
                 <p align="justify" class="mb-0"><b> More Info :</b> <?=$row['details']?> <?php } ?></p>
                 <a target="_blank" class="reply-btn text-green iq-font-18" href="<?=$row['reg_link']?>">Apply <i class="fas fa-long-arrow-alt-right"></i></a>
                 <br>
-                <a href="whatsapp://send?text=https:<?=base_url()?>#<?=$row['id_link']?>" data-action="share/whatsapp/share">Share via Whatsapp</a>
-
+                <p style="display:none;" id="<?=$row['id']?>">https:<?=base_url()?>#<?=$row['id_link']?></p>
+                <button class="button button5" onclick="copyToClipboard('#<?=$row['id']?>')">Copy Link</button>
               <div class="blog-info">
                 <img src="<?php echo base_url()?>assets/userhome/img/<?=$row['author_img']?>" class="img-fluid rounded-circle mr-3 user-img" alt="<?=$row['author_img']?>"><span class="iq-fw-8 font-c iq-font-18"><?=$row['author_first_name']?>&nbsp;<?=$row['author_last_name']?></span>
               </div>
@@ -70,3 +96,12 @@
     </div>
   </section>
 </div>
+<script>
+function copyToClipboard(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(element).text()).select();
+  document.execCommand("copy");
+  $temp.remove();
+}
+</script>
