@@ -74,7 +74,7 @@ class Signup extends CI_Controller {
                       $email->addContent(
                         "text/html", $message
                       );
-                      $sendgrid = new \SendGrid('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');
+                      $sendgrid = new \SendGrid('PUT_YOUR_API_KEY_HERE');
 
                       try {
                           $response = $sendgrid->send($email);
