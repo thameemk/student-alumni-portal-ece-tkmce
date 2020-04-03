@@ -15,8 +15,15 @@
 
 #### _Home_
 
+![Home](https://raw.githubusercontent.com/thameemk612/Student_Alumni_Portal_ECE_TKMCE/master/git_img/1.png)
+![Home2](https://raw.githubusercontent.com/thameemk612/Student_Alumni_Portal_ECE_TKMCE/master/git_img/3.png)
+
 #### _Profile_
- 
+
+ ![Profile](https://raw.githubusercontent.com/thameemk612/Student_Alumni_Portal_ECE_TKMCE/master/git_img/5.png)
+
 #### _Contact_
 
+![_Contact_](https://raw.githubusercontent.com/thameemk612/Student_Alumni_Portal_ECE_TKMCE/master/git_img/6.png)
 #### _About_  
+![About](https://raw.githubusercontent.com/thameemk612/Student_Alumni_Portal_ECE_TKMCE/master/git_img/4.png)
